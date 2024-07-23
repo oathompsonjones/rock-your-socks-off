@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "ryso",
+	"version": "${version}",
+	"name": "Rock Your Socks Off",
+	"description": "Socks are boring. Rock them off.",
+	"authors": [
+		"oathompsonjones",
+		"CoalSephos"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/modid/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "uk.co.oathompsonjones.RYSO"
+		],
+		"client": [
+          "uk.co.oathompsonjones.RYSOClient"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

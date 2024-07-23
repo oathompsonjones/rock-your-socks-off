@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ryso:item/socks",
+    "layer1": "ryso:item/purple_socks_overlay"
+  }
+}
