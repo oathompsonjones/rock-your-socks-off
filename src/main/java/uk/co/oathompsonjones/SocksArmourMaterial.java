@@ -6,8 +6,12 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class WoolArmourMaterial implements ArmorMaterial {
-    public static final WoolArmourMaterial INSTANCE = new WoolArmourMaterial();
+public class SocksArmourMaterial implements ArmorMaterial {
+    String name;
+
+    public SocksArmourMaterial(String name) {
+        this.name = name;
+    }
 
     @Override
     public int getDurability(ArmorItem.Type type) {
@@ -36,7 +40,7 @@ public class WoolArmourMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return "wool";
+        return this.name;
     }
 
     @Override

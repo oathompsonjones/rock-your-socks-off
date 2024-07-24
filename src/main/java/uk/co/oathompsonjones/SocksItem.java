@@ -4,7 +4,10 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 
 public class SocksItem extends ArmorItem {
-    public SocksItem() {
-        super(WoolArmourMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings());
+    String id;
+
+    public SocksItem(String id) {
+        super(new SocksArmourMaterial(id), ArmorItem.Type.BOOTS, new Item.Settings());
+        this.id = id;
     }
 }
