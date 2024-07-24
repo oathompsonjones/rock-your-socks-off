@@ -3,17 +3,17 @@
 	"id": "ryso",
 	"version": "${version}",
 	"name": "Rock Your Socks Off",
-	"description": "Socks are boring. Rock them off.",
+	"description": "Socks are boring, rock them off. Adds various new socks to the game, each with their own unique abilities.\nSupports the Trinkets mod.",
 	"authors": [
 		"oathompsonjones",
 		"CoalSephos"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/oathompsonjones/rock-your-socks-off",
+		"sources": "https://github.com/oathompsonjones/rock-your-socks-off"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/ryso/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -31,6 +31,6 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"trinkets": "*"
 	}
 }
