@@ -12,7 +12,7 @@
 		"homepage": "https://github.com/oathompsonjones/rock-your-socks-off",
 		"sources": "https://github.com/oathompsonjones/rock-your-socks-off"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/ryso/icon.png",
 	"environment": "*",
 	"entrypoints": {
