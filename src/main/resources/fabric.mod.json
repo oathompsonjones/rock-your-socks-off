@@ -28,9 +28,8 @@
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.20.1",
 		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
+		"fabric-api": "*",
 		"trinkets": "*"
-	}
+	},
+	"suggests": {}
 }

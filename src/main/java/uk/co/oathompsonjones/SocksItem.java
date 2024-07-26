@@ -1,13 +1,12 @@
 package uk.co.oathompsonjones;
 
-import net.minecraft.item.ArmorItem;
+import dev.emi.trinkets.api.TrinketItem;
 import net.minecraft.item.Item;
-
-public class SocksItem extends ArmorItem {
+public class SocksItem extends TrinketItem {
     String id;
 
     public SocksItem(String id) {
-        super(new SocksArmourMaterial(id), ArmorItem.Type.BOOTS, new Item.Settings());
+        super(new Item.Settings());
         this.id = id;
     }
 }
