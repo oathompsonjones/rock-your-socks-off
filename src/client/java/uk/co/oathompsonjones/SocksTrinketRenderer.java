@@ -1,5 +1,6 @@
 package uk.co.oathompsonjones;
 
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.ArmorEntityModel;
@@ -7,7 +8,6 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.EntityModelLoader;
-import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -51,10 +51,12 @@ public class SocksTrinketRenderer<T extends LivingEntity, M extends EntityModel<
 
         // Render the socks.
         matrices.push();
+        // Scale the socks to fit under the boots and over the leggings.
+        matrices.scale(0.9f, 1, 0.9f);
         getContextModel().copyStateTo(model);
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
         VertexConsumer vertex = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(identifier));
-        model.render(matrices, vertex, light, 0, 1, 1, 1, 1);
+        model.render(matrices, vertex, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
         matrices.pop();
     }
 
