@@ -16,7 +16,7 @@ public class RYSOItemGroups {
 
     public static final ItemGroup SOCKS = FabricItemGroup
             .builder()
-            .icon(() -> new ItemStack(RYSOItems.SOCKS))
+            .icon(() -> new ItemStack(RYSOItems.ITEMS.get(0)))
             .displayName(Text.of(RYSO.MOD_ID.toUpperCase()))
             .build();
 
