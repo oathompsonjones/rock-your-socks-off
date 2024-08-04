@@ -15,7 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import uk.co.oathompsonjones.integrations.trinkets.Trinkets;
+import uk.co.oathompsonjones.integrations.Trinkets;
 
 import java.util.List;
 

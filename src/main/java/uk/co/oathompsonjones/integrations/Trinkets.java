@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.integrations.trinkets;
+package uk.co.oathompsonjones.integrations;
 
 import dev.emi.trinkets.api.*;
 import net.minecraft.entity.LivingEntity;
@@ -50,4 +50,6 @@ public class Trinkets {
 
         return out;
     }
+
+    private record SocksTrinket(String id) implements Trinket { }
 }
