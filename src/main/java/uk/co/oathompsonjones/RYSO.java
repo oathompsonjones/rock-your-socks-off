@@ -25,6 +25,5 @@ public class RYSO implements ModInitializer {
 
         // Register all items and item groups
         RYSOItems.initialize();
-        RYSOItemGroups.initialize();
     }
 }
