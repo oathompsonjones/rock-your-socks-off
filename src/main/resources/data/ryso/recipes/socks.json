@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "   ",
-        "W W",
-        "W W"
-    ],
-    "key": {
-        "W": {
-            "item": "minecraft:white_wool"
-        }
-    },
-    "result": {
-        "item": "ryso:socks",
-        "count": 1
+  "pattern": [
+    "   ",
+    "W W",
+    "W W"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:white_wool"
     }
+  },
+  "result": {
+    "item": "ryso:socks",
+    "count": 1
+  }
 }

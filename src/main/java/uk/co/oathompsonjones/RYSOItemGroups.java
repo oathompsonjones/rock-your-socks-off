@@ -10,9 +10,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class RYSOItemGroups {
-    public static final RegistryKey<ItemGroup> SOCKS_KEY = RegistryKey.of(
-            Registries.ITEM_GROUP.getKey(),
-            Identifier.of(RYSO.MOD_ID, "item_group"));
+    public static final RegistryKey<ItemGroup> SOCKS_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(),
+                                                                          Identifier.of(RYSO.MOD_ID, "item_group")
+    );
 
     public static final ItemGroup SOCKS = FabricItemGroup
             .builder()

@@ -25,8 +25,8 @@ public class Trinkets {
     }
 
     public static TypedActionResult<ItemStack> equipTrinket(PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        boolean canEquipTrinket = TrinketItem.equipItem(user, itemStack);
+        ItemStack itemStack       = user.getStackInHand(hand);
+        boolean   canEquipTrinket = TrinketItem.equipItem(user, itemStack);
         return canEquipTrinket ? TypedActionResult.success(itemStack) : TypedActionResult.fail(itemStack);
     }
 
@@ -43,7 +43,8 @@ public class Trinkets {
         for (Item item : RYSOItems.ITEMS) {
             for (Pair<SlotReference, ItemStack> pair : trinketComponent.getEquipped(item)) {
                 // If the socks are in a shoes slot, add it to the output.
-                if (pair.getLeft().inventory().getSlotType().getName().equals("shoes")) out.add(pair.getRight());
+                if (pair.getLeft().inventory().getSlotType().getName().equals("shoes"))
+                    out.add(pair.getRight());
             }
         }
 

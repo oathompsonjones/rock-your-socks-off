@@ -30,5 +30,4 @@ public class SocksItem extends ArmorItem {
         }
         return super.use(world, user, hand);
     }
-
 }
