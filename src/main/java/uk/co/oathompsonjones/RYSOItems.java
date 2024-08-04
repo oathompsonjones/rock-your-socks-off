@@ -1,16 +1,24 @@
 package uk.co.oathompsonjones;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RYSOItems {
-    public static final List<Item> ITEMS = new ArrayList<>(List.of(
+    public static final RegistryKey<ItemGroup> KEY   = RegistryKey.of(Registries.ITEM_GROUP.getKey(),
+                                                                      Identifier.of(RYSO.MOD_ID, "item_group")
+    );
+    public static final List<Item>             ITEMS = new ArrayList<>(List.of(
             register(new SocksItem("socks")),
             register(new SocksItem("rainbow_socks")),
             register(new SocksItem("christmas_socks")),
@@ -30,6 +38,11 @@ public class RYSOItems {
             register(new SocksItem("magenta_socks")),
             register(new SocksItem("pink_socks"))
     ));
+    public static final ItemGroup              GROUP = FabricItemGroup
+            .builder()
+            .icon(() -> new ItemStack(RYSOItems.ITEMS.get(0)))
+            .displayName(Text.of(RYSO.MOD_ID.toUpperCase()))
+            .build();
 
     public static SocksItem register(SocksItem item) {
         return register(item, item.id);
@@ -39,12 +52,10 @@ public class RYSOItems {
         return Registry.register(Registries.ITEM, new Identifier(RYSO.MOD_ID, id), item);
     }
 
-    private static void registerSocksItemInGroup(Item item) {
-        ItemGroupEvents.modifyEntriesEvent(RYSOItemGroups.SOCKS_KEY).register((group) -> group.add(item));
-    }
-
     public static void initialize() {
+        Registry.register(Registries.ITEM_GROUP, KEY, GROUP);
+
         for (Item item : ITEMS)
-            registerSocksItemInGroup(item);
+            ItemGroupEvents.modifyEntriesEvent(KEY).register((group) -> group.add(item));
     }
 }
