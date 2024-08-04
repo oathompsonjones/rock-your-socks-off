@@ -15,6 +15,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.util.Identifier;
+import uk.co.oathompsonjones.integrations.trinkets.Trinkets;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class SocksTrinketRenderer<T extends LivingEntity, M extends EntityModel<
             float headYaw,
             float headPitch) {
         // Get the stack of the socks.
-        List<ItemStack> equippedTrinkets = RYSO.getEquippedSocksTrinkets(entity);
+        List<ItemStack> equippedTrinkets = RYSO.HAS_TRINKETS ? Trinkets.getEquippedSocks(entity) : List.of();
         if (equippedTrinkets.isEmpty())
             return;
         ItemStack stack = equippedTrinkets.get(0);
