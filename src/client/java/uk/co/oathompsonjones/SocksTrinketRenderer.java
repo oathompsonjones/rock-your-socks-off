@@ -54,7 +54,7 @@ public class SocksTrinketRenderer<T extends LivingEntity, M extends EntityModel<
         // Render the socks.
         matrices.push();
         // Scale the socks to fit under the boots and over the leggings.
-        matrices.scale(0.9f, 1, 0.9f);
+        matrices.scale(0.9f, 0.99f, 0.9f);
         getContextModel().copyStateTo(model);
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
         VertexConsumer vertex = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(identifier));
