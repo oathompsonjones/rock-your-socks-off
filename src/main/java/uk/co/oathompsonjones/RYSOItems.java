@@ -33,7 +33,7 @@ public class RYSOItems {
             register(new SocksItem("light_blue_socks")),
             register(new SocksItem("blue_socks")),
             register(new SocksItem("purple_socks")),
-            // register(new SocksItem("magenta_socks")),
+            register(new SocksItem("magenta_socks")),
             register(new SocksItem("pink_socks")),
             register(new SocksItem("rainbow_socks")),
             register(new SocksItem("christmas_socks"))
