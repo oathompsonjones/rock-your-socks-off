@@ -20,23 +20,23 @@ public class RYSOItems {
     );
     public static final List<Item>             ITEMS = new ArrayList<>(List.of(
             register(new SocksItem("socks")),
-            register(new SocksItem("rainbow_socks")),
-            register(new SocksItem("christmas_socks")),
-            register(new SocksItem("light_gray_socks")),
-            register(new SocksItem("gray_socks")),
+            // register(new SocksItem("light_gray_socks")),
+            // register(new SocksItem("gray_socks")),
             register(new SocksItem("black_socks")),
-            register(new SocksItem("brown_socks")),
+            // register(new SocksItem("brown_socks")),
             register(new SocksItem("red_socks")),
             register(new SocksItem("orange_socks")),
             register(new SocksItem("yellow_socks")),
             register(new SocksItem("lime_socks")),
             register(new SocksItem("green_socks")),
-            register(new SocksItem("cyan_socks")),
+            // register(new SocksItem("cyan_socks")),
             register(new SocksItem("light_blue_socks")),
             register(new SocksItem("blue_socks")),
             register(new SocksItem("purple_socks")),
-            register(new SocksItem("magenta_socks")),
-            register(new SocksItem("pink_socks"))
+            // register(new SocksItem("magenta_socks")),
+            register(new SocksItem("pink_socks")),
+            register(new SocksItem("rainbow_socks")),
+            register(new SocksItem("christmas_socks"))
     ));
     public static final ItemGroup              GROUP = FabricItemGroup
             .builder()
