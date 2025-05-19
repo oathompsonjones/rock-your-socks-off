@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CSC",
+    "EBE",
+    "CSC"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "S": {
+      "item": "minecraft:scute"
+    },
+    "C": {
+      "item": "minecraft:cactus"
+    },
+    "E": {
+      "item": "minecraft:sweet_berries"
+    }
+  },
+  "result": {
+    "item": "ryso:green_socks",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LPL",
+    "CBC",
+    "LPL"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "P": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "C": {
+      "item": "minecraft:tube_coral"
+    }
+  },
+  "result": {
+    "item": "ryso:blue_socks",
+    "count": 1
+  }
+}

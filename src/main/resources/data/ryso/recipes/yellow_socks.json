@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GAG",
+    "IBI",
+    "GAG"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "A": {
+      "item": "minecraft:golden_apple"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "ryso:yellow_socks",
+    "count": 1
+  }
+}

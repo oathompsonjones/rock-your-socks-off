@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FPF",
+    "SBS",
+    "FPF"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "S": {
+      "item": "minecraft:soul_soil"
+    }
+  },
+  "result": {
+    "item": "ryso:light_blue_socks",
+    "count": 1
+  }
+}

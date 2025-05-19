@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CNC",
+    "SBS",
+    "CNC"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "C": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "S": {
+      "item": "minecraft:sculk_catalyst"
+    }
+  },
+  "result": {
+    "item": "ryso:rainbow_socks",
+    "count": 1
+  }
+}

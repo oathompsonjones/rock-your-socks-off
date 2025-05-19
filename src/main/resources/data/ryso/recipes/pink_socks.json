@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PWP",
+    "FBF",
+    "PWP"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "W": {
+      "item": "minecraft:pink_wool"
+    },
+    "P": {
+      "item": "minecraft:pink_petals"
+    },
+    "F": {
+      "item": "minecraft:flowering_azalea"
+    }
+  },
+  "result": {
+    "item": "ryso:pink_socks",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "EBE",
+    "ICI"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "C": {
+      "item": "minecraft:golden_carrot"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "result": {
+    "item": "ryso:black_socks",
+    "count": 1
+  }
+}

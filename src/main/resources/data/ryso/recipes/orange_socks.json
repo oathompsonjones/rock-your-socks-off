@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GPG",
+    "NBN",
+    "GPG"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "P": {
+      "item": "minecraft:blaze_powder"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "result": {
+    "item": "ryso:orange_socks",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CMC",
+    "SBS",
+    "CMC"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "M": {
+      "item": "minecraft:bone_meal"
+    },
+    "C": {
+      "item": "minecraft:moss_carpet"
+    },
+    "S": {
+      "item": "minecraft:wheat_seeds"
+    }
+  },
+  "result": {
+    "item": "ryso:lime_socks",
+    "count": 1
+  }
+}

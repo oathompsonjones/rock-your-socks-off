@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RGR",
+    "MBM",
+    "RGR"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "G": {
+      "item": "minecraft:ghast_tear"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "item": "minecraft:glistering_melon_slice"
+    }
+  },
+  "result": {
+    "item": "ryso:red_socks",
+    "count": 1
+  }
+}

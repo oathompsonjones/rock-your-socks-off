@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SES",
+    "CBC",
+    "SIS"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "I": {
+      "item": "minecraft:blue_ice"
+    },
+    "S": {
+      "item": "minecraft:powder_snow_bucket"
+    },
+    "C": {
+      "item": "minecraft:cookie"
+    }
+  },
+  "result": {
+    "item": "ryso:christmas_socks",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SAS",
+    "FBF",
+    "SAS"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "F": {
+      "item": "minecraft:allium"
+    }
+  },
+  "result": {
+    "item": "ryso:purple_socks",
+    "count": 1
+  }
+}
