@@ -51,5 +51,14 @@ public class Trinkets {
         return out;
     }
 
-    private record SocksTrinket(String id) implements Trinket { }
+    private record SocksTrinket(String id) implements Trinket {
+        @Override
+        public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+            Trinket.super.onEquip(stack, slot, entity);
+            if (entity instanceof PlayerEntity user && stack.getItem() instanceof SocksItem socks) {
+                // Play the equip sound
+                user.playSound(socks.getMaterial().getEquipSound(), 1.0F, 1.0F);
+            }
+        }
+    }
 }
