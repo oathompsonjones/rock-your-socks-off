@@ -59,7 +59,7 @@ public class SocksItem extends ArmorItem {
 
         @Override
         public SoundEvent getEquipSound() {
-            return SoundEvents.ITEM_ARMOR_EQUIP_GENERIC;
+            return SoundEvents.BLOCK_WOOL_STEP;
         }
 
         @Override
