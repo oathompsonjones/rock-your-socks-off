@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LFL",
+    "PBP",
+    "LFL"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "L": {
+      "item": "minecraft:lily_of_the_valley"
+    },
+    "P": {
+      "item": "minecraft:pufferfish"
+    }
+  },
+  "result": {
+    "item": "ryso:light_gray_socks",
+    "count": 1
+  }
+}

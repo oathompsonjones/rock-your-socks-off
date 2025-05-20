@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PNP",
+    "SBS",
+    "PNP"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "N": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "P": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "S": {
+      "item": "minecraft:sponge"
+    }
+  },
+  "result": {
+    "item": "ryso:cyan_socks",
+    "count": 1
+  }
+}

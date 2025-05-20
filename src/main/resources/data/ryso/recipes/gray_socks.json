@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "SBS",
+    "IMI"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "S": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "result": {
+    "item": "ryso:gray_socks",
+    "count": 1
+  }
+}

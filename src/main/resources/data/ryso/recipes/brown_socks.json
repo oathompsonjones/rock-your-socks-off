@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MCM",
+    "RBR",
+    "MCM"
+  ],
+  "key": {
+    "B": {
+      "item": "ryso:socks"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "M": {
+      "item": "minecraft:mud"
+    },
+    "R": {
+      "item": "minecraft:rabbit_hide"
+    }
+  },
+  "result": {
+    "item": "ryso:brown_socks",
+    "count": 1
+  }
+}
