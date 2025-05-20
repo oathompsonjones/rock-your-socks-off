@@ -16,5 +16,17 @@
   "item.ryso.blue_socks": "Blue Socks",
   "item.ryso.purple_socks": "Purple Socks",
   "item.ryso.magenta_socks": "Magenta Socks",
-  "item.ryso.pink_socks": "Pink Socks"
+  "item.ryso.pink_socks": "Pink Socks",
+  "effect.ryso.poisonous": "Poisonous",
+  "effect.ryso.steel_skin": "Steel Skin",
+  "effect.ryso.true_sight": "True Sight",
+  "effect.ryso.slippery": "Slippery",
+  "effect.ryso.piglins_favor": "Piglin's Favour",
+  "effect.ryso.green_thumb": "Green Thumb",
+  "effect.ryso.thick_skin": "Thick Skin",
+  "effect.ryso.guardians_favor": "Guardian's Favour",
+  "effect.ryso.sure_footed": "Sure Footed",
+  "effect.ryso.endermans_favor": "Enderman's Favour",
+  "effect.ryso.cutesy": "Cutesy",
+  "effect.ryso.jolly_spirit": "Jolly Spirit"
 }
