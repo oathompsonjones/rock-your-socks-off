@@ -64,7 +64,6 @@ public class Trinkets {
                                                                   socks.effect.cooldown,
                                                                   socks.effect.amplifier,
                                                                   false,
-                                                                  false,
                                                                   true
                     ));
             }

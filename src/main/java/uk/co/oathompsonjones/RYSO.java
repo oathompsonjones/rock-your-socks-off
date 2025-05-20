@@ -23,6 +23,9 @@ public class RYSO implements ModInitializer {
         if (HAS_TRINKETS)
             LOGGER.info("Trinkets detected.");
 
+        // Register all status effects
+        RYSOStatusEffects.initialize();
+
         // Register all items and item groups
         RYSOItems.initialize();
     }

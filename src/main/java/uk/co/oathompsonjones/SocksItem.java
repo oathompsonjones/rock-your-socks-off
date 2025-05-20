@@ -75,7 +75,6 @@ public class SocksItem extends ArmorItem {
                                                                 effect.cooldown,
                                                                 effect.amplifier,
                                                                 false,
-                                                                false,
                                                                 true
                 ));
         }
