@@ -28,7 +28,6 @@ public class RYSOItems {
             register(new SocksItem("orange_socks", RYSOStatusEffects.PIGLINS_FAVOR)),
             register(new SocksItem("yellow_socks", StatusEffects.HASTE, 1)),
             register(new SocksItem("lime_socks", RYSOStatusEffects.GREEN_THUMB)),
-            // TODO: Make this item immune to cacti
             register(new SocksItem("green_socks", RYSOStatusEffects.THICK_SKIN)),
             register(new SocksItem("cyan_socks", RYSOStatusEffects.GUARDIANS_FAVOR)),
             register(new SocksItem("light_blue_socks", StatusEffects.SLOW_FALLING)),

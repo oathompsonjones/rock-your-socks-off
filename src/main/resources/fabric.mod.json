@@ -23,7 +23,13 @@
       "uk.co.oathompsonjones.RYSOClient"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "ryso.mixins.json",
+    {
+      "config": "ryso.mixins.json",
+      "environment": "server"
+    }
+  ],
   "depends": {
     "fabricloader": ">=0.15.11",
     "minecraft": "~1.20.1",
