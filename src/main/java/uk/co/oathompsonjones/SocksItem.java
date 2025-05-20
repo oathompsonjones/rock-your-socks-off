@@ -33,7 +33,7 @@ public class SocksItem extends ArmorItem {
     public SocksItem(String id, StatusEffect effect, int amplifier) {
         super(new SocksArmourMaterial(id), Type.BOOTS, new Item.Settings());
         this.id     = id;
-        this.effect = new Effect(effect, amplifier);
+        this.effect = effect == null ? null : new Effect(effect, amplifier);
 
         // Register the item with the trinkets integration if it is present
         if (RYSO.HAS_TRINKETS)
