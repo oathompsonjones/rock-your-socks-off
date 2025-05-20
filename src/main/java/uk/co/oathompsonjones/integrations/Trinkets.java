@@ -2,6 +2,7 @@ package uk.co.oathompsonjones.integrations;
 
 import dev.emi.trinkets.api.*;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,7 @@ public class Trinkets {
     }
 
     public static TypedActionResult<ItemStack> equipTrinket(PlayerEntity user, Hand hand) {
-        ItemStack itemStack       = user.getStackInHand(hand);
+        ItemStack itemStack = user.getStackInHand(hand);
         boolean   canEquipTrinket = TrinketItem.equipItem(user, itemStack);
         return canEquipTrinket ? TypedActionResult.success(itemStack) : TypedActionResult.fail(itemStack);
     }
@@ -53,11 +54,28 @@ public class Trinkets {
 
     private record SocksTrinket(String id) implements Trinket {
         @Override
+        public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+            Trinket.super.tick(stack, slot, entity);
+
+            if (entity instanceof PlayerEntity user && stack.getItem() instanceof SocksItem socks) {
+                // Apply the status effect
+                if (socks.effect != null)
+                    user.addStatusEffect(new StatusEffectInstance(socks.effect.effect,
+                                                                  200,
+                                                                  socks.effect.amplifier,
+                                                                  false,
+                                                                  false,
+                                                                  true
+                    ));
+            }
+        }
+
+        @Override
         public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
             Trinket.super.onEquip(stack, slot, entity);
             if (entity instanceof PlayerEntity user && stack.getItem() instanceof SocksItem socks) {
                 // Play the equip sound
-                user.playSound(socks.getMaterial().getEquipSound(), 1.0F, 1.0F);
+                user.playSound(socks.getEquipSound(), 1.0F, 1.0F);
             }
         }
     }

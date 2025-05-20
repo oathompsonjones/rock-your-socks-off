@@ -1,5 +1,9 @@
 package uk.co.oathompsonjones;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -16,11 +20,22 @@ import uk.co.oathompsonjones.integrations.Trinkets;
 
 public class SocksItem extends ArmorItem {
     public final String id;
+    public final Effect effect;
 
     public SocksItem(String id) {
-        super(new SocksArmourMaterial(id), Type.BOOTS, new Item.Settings());
-        this.id = id;
+        this(id, null, 0);
+    }
 
+    public SocksItem(String id, StatusEffect effect) {
+        this(id, effect, 0);
+    }
+
+    public SocksItem(String id, StatusEffect effect, int amplifier) {
+        super(new SocksArmourMaterial(id), Type.BOOTS, new Item.Settings());
+        this.id     = id;
+        this.effect = new Effect(effect, amplifier);
+
+        // Register the item with the trinkets integration if it is present
         if (RYSO.HAS_TRINKETS)
             Trinkets.registerTrinket(this);
     }
@@ -33,6 +48,25 @@ public class SocksItem extends ArmorItem {
             return result.getResult().equals(ActionResult.SUCCESS) ? result : super.use(world, user, hand);
         }
         return super.use(world, user, hand);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, world, entity, slot, selected);
+
+        // Apply the effect if the player is wearing the socks
+        if (entity instanceof PlayerEntity player) {
+            if (effect != null && stack.getItem() instanceof SocksItem socks && player
+                    .getEquippedStack(EquipmentSlot.FEET)
+                    .isOf(socks))
+                player.addStatusEffect(new StatusEffectInstance(effect.effect,
+                                                                200,
+                                                                effect.amplifier,
+                                                                false,
+                                                                false,
+                                                                true
+                ));
+        }
     }
 
     private static class SocksArmourMaterial implements ArmorMaterial {
@@ -80,6 +114,21 @@ public class SocksItem extends ArmorItem {
         @Override
         public float getKnockbackResistance() {
             return 0;
+        }
+    }
+
+    public static class Effect {
+        public StatusEffect effect;
+        public int          amplifier;
+
+        public Effect(StatusEffect effect) {
+            this.effect    = effect;
+            this.amplifier = 0;
+        }
+
+        public Effect(StatusEffect effect, int amplifier) {
+            this.effect    = effect;
+            this.amplifier = amplifier;
         }
     }
 }
