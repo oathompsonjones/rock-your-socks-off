@@ -35,7 +35,8 @@ public class RYSOItems {
             register(new SocksItem("purple_socks")),
             register(new SocksItem("magenta_socks")),
             register(new SocksItem("pink_socks")),
-            register(new SocksItem("rainbow_socks", StatusEffects.RESISTANCE, 1)),
+            // Make rainbow socks fireproof as they contain netherite scraps
+            register(new SocksItem("rainbow_socks", StatusEffects.RESISTANCE, 1, new Item.Settings().fireproof())),
             register(new SocksItem("christmas_socks"))
     );
     public static final ItemGroup              GROUP = FabricItemGroup

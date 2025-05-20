@@ -61,7 +61,7 @@ public class Trinkets {
                 // Apply the status effect
                 if (socks.effect != null)
                     user.addStatusEffect(new StatusEffectInstance(socks.effect.effect,
-                                                                  200,
+                                                                  socks.effect.cooldown,
                                                                   socks.effect.amplifier,
                                                                   false,
                                                                   false,

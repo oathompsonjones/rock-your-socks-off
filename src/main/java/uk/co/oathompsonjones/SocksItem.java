@@ -23,15 +23,27 @@ public class SocksItem extends ArmorItem {
     public final Effect effect;
 
     public SocksItem(String id) {
-        this(id, null, 0);
+        this(id, null, 0, new Item.Settings());
+    }
+
+    public SocksItem(String id, Item.Settings settings) {
+        this(id, null, 0, settings);
     }
 
     public SocksItem(String id, StatusEffect effect) {
-        this(id, effect, 0);
+        this(id, effect, 0, new Item.Settings());
     }
 
     public SocksItem(String id, StatusEffect effect, int amplifier) {
-        super(new SocksArmourMaterial(id), Type.BOOTS, new Item.Settings());
+        this(id, effect, amplifier, new Item.Settings());
+    }
+
+    public SocksItem(String id, StatusEffect effect, Item.Settings settings) {
+        this(id, effect, 0, settings);
+    }
+
+    public SocksItem(String id, StatusEffect effect, int amplifier, Item.Settings settings) {
+        super(new SocksArmourMaterial(id), Type.BOOTS, settings);
         this.id     = id;
         this.effect = effect == null ? null : new Effect(effect, amplifier);
 
@@ -60,7 +72,7 @@ public class SocksItem extends ArmorItem {
                     .getEquippedStack(EquipmentSlot.FEET)
                     .isOf(socks))
                 player.addStatusEffect(new StatusEffectInstance(effect.effect,
-                                                                200,
+                                                                effect.cooldown,
                                                                 effect.amplifier,
                                                                 false,
                                                                 false,
@@ -120,11 +132,7 @@ public class SocksItem extends ArmorItem {
     public static class Effect {
         public StatusEffect effect;
         public int          amplifier;
-
-        public Effect(StatusEffect effect) {
-            this.effect    = effect;
-            this.amplifier = 0;
-        }
+        public int          cooldown = 60;
 
         public Effect(StatusEffect effect, int amplifier) {
             this.effect    = effect;
