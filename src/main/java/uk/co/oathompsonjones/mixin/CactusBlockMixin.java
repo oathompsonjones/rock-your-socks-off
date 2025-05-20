@@ -22,7 +22,7 @@ public class CactusBlockMixin extends Block {
 
     // Prevent green socks from breaking when hitting cactus
     @Inject(method="onEntityCollision", at=@At("HEAD"), cancellable=true)
-    private void preventItemDestruction(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
+    private void ryso$onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
         if (entity instanceof ItemEntity itemEntity
             && itemEntity.getStack().getItem() instanceof SocksItem socksItem
             && socksItem.id.equals("green_socks"))

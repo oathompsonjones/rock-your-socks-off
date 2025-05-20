@@ -3,7 +3,8 @@
   "package": "uk.co.oathompsonjones.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "CactusBlockMixin"
+    "CactusBlockMixin",
+    "PowderSnowBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
