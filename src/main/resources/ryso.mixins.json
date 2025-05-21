@@ -1,13 +1,16 @@
 {
   "required": true,
   "package": "uk.co.oathompsonjones.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CactusBlockMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
     "PowderSnowBlockMixin",
     "StatusEffectMixin"
+  ],
+  "client": [
+    "BackgroundRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

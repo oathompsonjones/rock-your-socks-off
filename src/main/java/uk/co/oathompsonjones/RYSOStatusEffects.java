@@ -3,6 +3,8 @@ package uk.co.oathompsonjones;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -70,6 +72,8 @@ public class RYSOStatusEffects {
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+            // TODO: This works, but it causes the night vision icon to appear in the inventory, which is not ideal.
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1, 0, false, false));
         }
 
         @Override

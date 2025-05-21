@@ -25,11 +25,7 @@
     ]
   },
   "mixins": [
-    "ryso.mixins.json",
-    {
-      "config": "ryso.mixins.json",
-      "environment": "server"
-    }
+    "ryso.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.15.11",
