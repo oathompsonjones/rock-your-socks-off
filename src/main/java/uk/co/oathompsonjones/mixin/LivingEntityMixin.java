@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -25,14 +26,8 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
 
-    @Inject(
-            method="damage", at=@At(
-            value="INVOKE",
-            target="Lnet/minecraft/entity/LivingEntity;setAttacker(Lnet/minecraft/entity/LivingEntity;)V",
-            shift=At.Shift.AFTER
-    )
-    )
-    public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
+    @Inject(method="damage", at=@At("HEAD"), cancellable=true)
+    public void ryso$damage_attacked(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
         var entity = (LivingEntity) (Object) this;
 
         // Handle the poisonous effect
@@ -44,5 +39,13 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 0), this);
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 1), this);
         }
+
+        // Handle the thick skin effect
+        if (this.hasStatusEffect(RYSOStatusEffects.THICK_SKIN) && (
+                source.isOf(DamageTypes.CACTUS)
+                || source.isOf(DamageTypes.SWEET_BERRY_BUSH)
+                || source.isOf(DamageTypes.THORNS)
+        ))
+            ci.cancel();
     }
 }
