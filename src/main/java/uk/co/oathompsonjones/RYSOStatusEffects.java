@@ -33,7 +33,7 @@ public class RYSOStatusEffects {
     // Applies poison to attackers
     private static class PoisonousStatusEffect extends StatusEffect {
         public PoisonousStatusEffect() {
-            super(StatusEffectCategory.BENEFICIAL, 0x8E8E86);
+            super(StatusEffectCategory.BENEFICIAL, 0x491110);
         }
 
         @Override
@@ -65,7 +65,7 @@ public class RYSOStatusEffects {
     // Night vision + immunity to darkness and blindness
     private static class TrueSightStatusEffect extends StatusEffect {
         public TrueSightStatusEffect() {
-            super(StatusEffectCategory.BENEFICIAL, 0x141519);
+            super(StatusEffectCategory.BENEFICIAL, 0x1FF6C8);
         }
 
         @Override
@@ -145,7 +145,7 @@ public class RYSOStatusEffects {
     // Makes guardians neutral to the player + immune to mining fatigue
     private static class GuardiansFavorStatusEffect extends StatusEffect {
         public GuardiansFavorStatusEffect() {
-            super(StatusEffectCategory.BENEFICIAL, 0x158991);
+            super(StatusEffectCategory.BENEFICIAL, 0x51E7BB);
         }
 
         @Override
