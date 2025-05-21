@@ -94,7 +94,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Makes piglins neutral to the player
+    // Makes piglins neutral to the player + better trades
     private static class PiglinsFavorStatusEffect extends StatusEffect {
         public PiglinsFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xF07613);
@@ -206,7 +206,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Hero of the village + walk on powdered snow
+    // Hero of the village (gifts, not discounts) + walk on powdered snow
     private static class JollySpiritStatusEffect extends StatusEffect {
         public JollySpiritStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xA12722);
