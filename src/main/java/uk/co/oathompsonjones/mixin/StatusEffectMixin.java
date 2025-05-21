@@ -14,8 +14,7 @@ public class StatusEffectMixin {
     @Inject(method="applyUpdateEffect", at=@At("HEAD"), cancellable=true)
     private void ryso$applyUpdateEffect(LivingEntity entity, int amplifier, CallbackInfo ci) {
         var effect = (StatusEffect) (Object) this;
-        if (entity.hasStatusEffect(RYSOStatusEffects.STEEL_SKIN) && effect == StatusEffects.POISON) {
+        if (entity.hasStatusEffect(RYSOStatusEffects.STEEL_SKIN) && effect == StatusEffects.POISON)
             ci.cancel();
-        }
     }
 }
