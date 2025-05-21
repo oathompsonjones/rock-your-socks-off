@@ -33,7 +33,16 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     )
     )
     public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
+        var entity = (LivingEntity) (Object) this;
+
+        // Handle the poisonous effect
         if (this.hasStatusEffect(RYSOStatusEffects.POISONOUS) && source.getAttacker() instanceof LivingEntity attacker)
             attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 120, 1), this);
+
+        // Handle the slippery effect
+        if (this.hasStatusEffect(RYSOStatusEffects.SLIPPERY) && source.getAttacker() instanceof LivingEntity attacker) {
+            attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 0), this);
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100, 1), this);
+        }
     }
 }
