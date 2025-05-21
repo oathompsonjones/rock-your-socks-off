@@ -199,7 +199,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Make spiders and pillagers neutral to the player
+    // Make pillagers neutral to the player
     // TODO: This is not implemented yet
     private static class CutesyStatusEffect extends StatusEffect {
         public CutesyStatusEffect() {
