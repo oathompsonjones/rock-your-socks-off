@@ -99,6 +99,7 @@ public class RYSOStatusEffects {
     }
 
     // Makes piglins neutral to the player + better trades
+    // TODO: Trading is not implemented yet
     private static class PiglinsFavorStatusEffect extends StatusEffect {
         public PiglinsFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xF07613);
@@ -115,6 +116,7 @@ public class RYSOStatusEffects {
     }
 
     // Fortune for crops
+    // TODO: This is not implemented yet
     private static class GreenThumbStatusEffect extends StatusEffect {
         public GreenThumbStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x70B919);
@@ -147,6 +149,7 @@ public class RYSOStatusEffects {
     }
 
     // Makes guardians neutral to the player + immune to mining fatigue
+    // TODO: This is not implemented yet
     private static class GuardiansFavorStatusEffect extends StatusEffect {
         public GuardiansFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x51E7BB);
@@ -163,6 +166,7 @@ public class RYSOStatusEffects {
     }
 
     // Applies speed + walks up blocks like a horse
+    // TODO: This is not implemented yet
     private static class SureFootedStatusEffect extends StatusEffect {
         public SureFootedStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x792AAC);
@@ -179,6 +183,7 @@ public class RYSOStatusEffects {
     }
 
     // Acts like wearing a carved pumpkin
+    // TODO: This is not implemented yet
     private static class EndermansFavorStatusEffect extends StatusEffect {
         public EndermansFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xBD44B3);
@@ -195,6 +200,7 @@ public class RYSOStatusEffects {
     }
 
     // Make spiders and pillagers neutral to the player
+    // TODO: This is not implemented yet
     private static class CutesyStatusEffect extends StatusEffect {
         public CutesyStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xED8DAC);
@@ -211,6 +217,7 @@ public class RYSOStatusEffects {
     }
 
     // Hero of the village (gifts, not discounts) + walk on powdered snow
+    // TODO: Hero of the village is not implemented yet
     private static class JollySpiritStatusEffect extends StatusEffect {
         public JollySpiritStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xA12722);
