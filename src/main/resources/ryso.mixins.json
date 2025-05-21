@@ -6,7 +6,8 @@
     "CactusBlockMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
-    "PowderSnowBlockMixin"
+    "PowderSnowBlockMixin",
+    "StatusEffectMixin"
   ],
   "injectors": {
     "defaultRequire": 1
