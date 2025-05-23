@@ -36,7 +36,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
 
-    @Inject(method="damage", at=@At("HEAD"), cancellable=true)
+    @Inject(method="damage", at=@At("HEAD"))
     public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
         var entity = (LivingEntity) (Object) this;
 
@@ -71,8 +71,8 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             guardiansFavorAttacker = attacker;
     }
 
-    @Inject(method="canTarget*", at=@At("HEAD"), cancellable=true)
-    private void ryso$canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> ci) {
+    @Inject(method="canTarget(Lnet/minecraft/entity/LivingEntity;)Z", at=@At("HEAD"), cancellable=true)
+    public void ryso$canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> ci) {
         // Prevent pillagers and vindicators from attacking players with the CUTESY effect outside of raids unless provoked
         if (((LivingEntity) (Object) this) instanceof IllagerEntity illager
             && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
