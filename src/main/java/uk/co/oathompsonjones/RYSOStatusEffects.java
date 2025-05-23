@@ -165,7 +165,7 @@ public class RYSOStatusEffects {
     }
 
     // Applies speed + walks up blocks like a horse
-    // TODO: This is not implemented yet
+    // TODO: Walking up blocks is not implemented yet
     private static class SureFootedStatusEffect extends StatusEffect {
         public SureFootedStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x792AAC);
@@ -173,6 +173,8 @@ public class RYSOStatusEffects {
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+            // TODO: This works, but it causes the speed icon to appear in the inventory, which is not ideal.
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1, 0, false, false));
         }
 
         @Override
