@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CactusBlockMixin",
+    "EndermanEntityMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
     "PlayerEntityMixin",

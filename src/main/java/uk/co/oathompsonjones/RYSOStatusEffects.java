@@ -191,7 +191,6 @@ public class RYSOStatusEffects {
     }
 
     // Acts like wearing a carved pumpkin
-    // TODO: This is not implemented yet
     private static class EndermansFavorStatusEffect extends StatusEffect {
         public EndermansFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xBD44B3);
