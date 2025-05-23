@@ -1,6 +1,8 @@
 package uk.co.oathompsonjones;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -18,7 +20,14 @@ public class RYSOStatusEffects {
     public static final StatusEffect GREEN_THUMB     = register("green_thumb", new GreenThumbStatusEffect());
     public static final StatusEffect THICK_SKIN      = register("thick_skin", new ThickSkinStatusEffect());
     public static final StatusEffect GUARDIANS_FAVOR = register("guardians_favor", new GuardiansFavorStatusEffect());
-    public static final StatusEffect SURE_FOOTED     = register("sure_footed", new SureFootedStatusEffect());
+    public static final StatusEffect SURE_FOOTED     = register("sure_footed",
+                                                                new SureFootedStatusEffect().addAttributeModifier(
+                                                                        EntityAttributes.GENERIC_MOVEMENT_SPEED,
+                                                                        "91AEAA56-376B-4498-935B-2F7F68070635",
+                                                                        0.2F,
+                                                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+                                                                )
+    );
     public static final StatusEffect ENDERMANS_FAVOR = register("endermans_favor", new EndermansFavorStatusEffect());
     public static final StatusEffect CUTESY          = register("cutesy", new CutesyStatusEffect());
     public static final StatusEffect JOLLY_SPIRIT    = register("jolly_spirit", new JollySpiritStatusEffect());
@@ -173,8 +182,6 @@ public class RYSOStatusEffects {
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-            // TODO: This works, but it causes the speed icon to appear in the inventory, which is not ideal.
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1, 0, false, false));
         }
 
         @Override
