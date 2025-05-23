@@ -199,8 +199,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Make pillagers neutral to the player
-    // TODO: This is not implemented yet
+    // Make pillagers and vindicators neutral to the player outside of raids
     private static class CutesyStatusEffect extends StatusEffect {
         public CutesyStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xED8DAC);

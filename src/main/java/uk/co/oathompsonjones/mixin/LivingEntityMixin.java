@@ -9,9 +9,13 @@ import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.IllagerEntity;
+import net.minecraft.entity.mob.PillagerEntity;
+import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -19,6 +23,9 @@ import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
+    @Unique
+    LivingEntity cutesyAttacker;
+
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -27,7 +34,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     public abstract boolean hasStatusEffect(StatusEffect effect);
 
     @Inject(method="damage", at=@At("HEAD"), cancellable=true)
-    public void ryso$damage_attacked(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
+    public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
         var entity = (LivingEntity) (Object) this;
 
         // Handle the poisonous effect
@@ -47,5 +54,22 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
                 || source.isOf(DamageTypes.THORNS)
         ))
             ci.cancel();
+
+        // Handle the cutesy effect
+        if ((entity instanceof PillagerEntity || entity instanceof VindicatorEntity)
+            && source.getAttacker() instanceof LivingEntity attacker
+            && attacker.hasStatusEffect(RYSOStatusEffects.CUTESY))
+            cutesyAttacker = attacker;
+    }
+
+    // Prevent pillagers and vindicators from attacking players with the CUTESY effect outside of raids unless provoked
+    @Inject(method="canTarget*", at=@At("HEAD"), cancellable=true)
+    private void ryso$canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> ci) {
+        if (((LivingEntity) (Object) this) instanceof IllagerEntity illager
+            && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
+            && !illager.hasActiveRaid()
+            && target.hasStatusEffect(RYSOStatusEffects.CUTESY)
+            && cutesyAttacker != target)
+            ci.setReturnValue(false);
     }
 }
