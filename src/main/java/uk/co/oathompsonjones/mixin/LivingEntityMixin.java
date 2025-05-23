@@ -26,6 +26,9 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Unique
     LivingEntity cutesyAttacker;
 
+    @Unique
+    LivingEntity guardiansFavorAttacker;
+
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -60,16 +63,29 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             && source.getAttacker() instanceof LivingEntity attacker
             && attacker.hasStatusEffect(RYSOStatusEffects.CUTESY))
             cutesyAttacker = attacker;
+
+        // Handle the guardians favor effect
+        if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
+            && source.getAttacker() instanceof LivingEntity attacker
+            && attacker.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR))
+            guardiansFavorAttacker = attacker;
     }
 
-    // Prevent pillagers and vindicators from attacking players with the CUTESY effect outside of raids unless provoked
     @Inject(method="canTarget*", at=@At("HEAD"), cancellable=true)
     private void ryso$canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> ci) {
+        // Prevent pillagers and vindicators from attacking players with the CUTESY effect outside of raids unless provoked
         if (((LivingEntity) (Object) this) instanceof IllagerEntity illager
             && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
             && !illager.hasActiveRaid()
             && target.hasStatusEffect(RYSOStatusEffects.CUTESY)
             && cutesyAttacker != target)
             ci.setReturnValue(false);
+
+        // Prevent guardians from attacking players with the GUARDIANS_FAVOR effect unless provoked
+        if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
+            && target.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)
+            && guardiansFavorAttacker != target) {
+            ci.setReturnValue(false);
+        }
     }
 }

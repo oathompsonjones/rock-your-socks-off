@@ -6,6 +6,7 @@
     "CactusBlockMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
+    "PlayerEntityMixin",
     "PowderSnowBlockMixin",
     "StatusEffectMixin"
   ],

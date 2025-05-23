@@ -149,7 +149,6 @@ public class RYSOStatusEffects {
     }
 
     // Makes guardians neutral to the player + immune to mining fatigue
-    // TODO: This is not implemented yet
     private static class GuardiansFavorStatusEffect extends StatusEffect {
         public GuardiansFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x51E7BB);
