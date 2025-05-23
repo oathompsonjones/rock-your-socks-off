@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import uk.co.oathompsonjones.SocksItem;
 
 @Mixin(CactusBlock.class)
-public class CactusBlockMixin extends Block {
+public abstract class CactusBlockMixin extends Block {
     CactusBlockMixin(AbstractBlock.Settings settings) {
         super(settings);
     }

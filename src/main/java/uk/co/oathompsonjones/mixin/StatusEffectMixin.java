@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(StatusEffect.class)
-public class StatusEffectMixin {
+public abstract class StatusEffectMixin {
+    // Prevent poison from harming players with the STEEL_SKIN effect
     @Inject(method="applyUpdateEffect", at=@At("HEAD"), cancellable=true)
     private void ryso$applyUpdateEffect(LivingEntity entity, int amplifier, CallbackInfo ci) {
         var effect = (StatusEffect) (Object) this;

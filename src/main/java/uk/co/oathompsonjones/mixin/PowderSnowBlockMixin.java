@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(PowderSnowBlock.class)
-public class PowderSnowBlockMixin extends Block {
+public abstract class PowderSnowBlockMixin extends Block {
     PowderSnowBlockMixin(Settings settings) {
         super(settings);
     }
