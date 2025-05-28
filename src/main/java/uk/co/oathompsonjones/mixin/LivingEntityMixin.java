@@ -36,7 +36,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
 
-    @Inject(method="damage", at=@At("HEAD"))
+    @Inject(method="damage", at=@At("HEAD"), cancellable=true)
     public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
         var entity = (LivingEntity) (Object) this;
 
