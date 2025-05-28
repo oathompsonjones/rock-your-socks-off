@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
@@ -30,6 +31,12 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
 
     @Unique
     LivingEntity guardiansFavorAttacker;
+
+    @Unique
+    float endermansFavorChance = 0.33F;
+
+    @Unique
+    int endermansFavorCooldown;
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -42,10 +49,21 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     public abstract float getHealth();
 
     @Shadow
-    public abstract ItemStack eatFood(World world, ItemStack stack);
+    public abstract boolean damage(DamageSource source, float amount);
+
+    @Shadow
+    protected abstract void applyDamage(DamageSource source, float amount);
+
+    @Inject(method="tick", at=@At("HEAD"))
+    private void ryso$tick(CallbackInfo ci) {
+        if (endermansFavorCooldown > 0)
+            endermansFavorCooldown--;
+    }
 
     @Inject(method="damage", at=@At("HEAD"), cancellable=true)
-    public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
+    public void ryso$damage(
+            DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci
+    ) {
         var entity = (LivingEntity) (Object) this;
 
         // Handle the poisonous effect
@@ -79,9 +97,16 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             guardiansFavorAttacker = attacker;
 
         // Handle the endermans favor effect
-        if (this.hasStatusEffect(RYSOStatusEffects.ENDERMANS_FAVOR) && this.getHealth() - amount == 1) {
+        if (this.hasStatusEffect(RYSOStatusEffects.ENDERMANS_FAVOR)
+            && endermansFavorCooldown == 0
+            && Math.random() <= endermansFavorChance
+            && this.getHealth() > 1
+            && this.getHealth() - amount <= 2) {
+            endermansFavorCooldown = 200;
+            this.applyDamage(source, this.getHealth() - 1);
             var stack = new ItemStack(Items.CHORUS_FRUIT);
             stack.getItem().finishUsing(stack, this.getWorld(), entity);
+            ci.cancel();
         }
     }
 
