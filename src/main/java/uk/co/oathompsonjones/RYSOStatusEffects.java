@@ -189,7 +189,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Acts like wearing a carved pumpkin
+    // Acts like wearing a carved pumpkin + eating chorus fruit upon half a heart of health
     private static class EndermansFavorStatusEffect extends StatusEffect {
         public EndermansFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xBD44B3);

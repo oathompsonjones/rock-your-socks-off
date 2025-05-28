@@ -12,6 +12,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.IllagerEntity;
 import net.minecraft.entity.mob.PillagerEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -35,6 +37,12 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
 
     @Shadow
     public abstract boolean hasStatusEffect(StatusEffect effect);
+
+    @Shadow
+    public abstract float getHealth();
+
+    @Shadow
+    public abstract ItemStack eatFood(World world, ItemStack stack);
 
     @Inject(method="damage", at=@At("HEAD"), cancellable=true)
     public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
@@ -69,6 +77,12 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             && source.getAttacker() instanceof LivingEntity attacker
             && attacker.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR))
             guardiansFavorAttacker = attacker;
+
+        // Handle the endermans favor effect
+        if (this.hasStatusEffect(RYSOStatusEffects.ENDERMANS_FAVOR) && this.getHealth() - amount == 1) {
+            var stack = new ItemStack(Items.CHORUS_FRUIT);
+            stack.getItem().finishUsing(stack, this.getWorld(), entity);
+        }
     }
 
     @Inject(method="canTarget(Lnet/minecraft/entity/LivingEntity;)Z", at=@At("HEAD"), cancellable=true)
