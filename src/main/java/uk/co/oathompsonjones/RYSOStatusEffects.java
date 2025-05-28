@@ -124,8 +124,7 @@ public class RYSOStatusEffects {
         }
     }
 
-    // Fortune for crops
-    // TODO: This is not implemented yet
+    // Fortune for crops and immune to crop trampling
     private static class GreenThumbStatusEffect extends StatusEffect {
         public GreenThumbStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x70B919);

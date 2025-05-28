@@ -3,8 +3,10 @@
   "package": "uk.co.oathompsonjones.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BlockMixin",
     "CactusBlockMixin",
     "EndermanEntityMixin",
+    "FarmlandBlockMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
     "PlayerEntityMixin",
