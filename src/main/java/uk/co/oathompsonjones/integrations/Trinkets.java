@@ -22,11 +22,11 @@ public class Trinkets {
     }
 
     public static void registerTrinket(SocksItem item) {
-        registerTrinket(item, new SocksTrinket(item.id));
+        registerTrinket(item, new SocksTrinket(item.getId()));
     }
 
     public static TypedActionResult<ItemStack> equipTrinket(PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
+        ItemStack itemStack       = user.getStackInHand(hand);
         boolean   canEquipTrinket = TrinketItem.equipItem(user, itemStack);
         return canEquipTrinket ? TypedActionResult.success(itemStack) : TypedActionResult.fail(itemStack);
     }
@@ -59,12 +59,13 @@ public class Trinkets {
 
             if (entity instanceof PlayerEntity user && stack.getItem() instanceof SocksItem socks) {
                 // Apply the status effect
-                if (socks.effect != null)
-                    user.addStatusEffect(new StatusEffectInstance(socks.effect.effect,
-                                                                  socks.effect.cooldown,
-                                                                  socks.effect.amplifier,
-                                                                  false,
-                                                                  true
+                if (socks.getEffect() != null)
+                    user.addStatusEffect(new StatusEffectInstance(
+                            socks.getEffect().getEffect(),
+                            socks.getEffect().getCooldown(),
+                            socks.getEffect().getAmplifier(),
+                            false,
+                            true
                     ));
             }
         }

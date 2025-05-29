@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import uk.co.oathompsonjones.RYSOItems;
 import uk.co.oathompsonjones.SocksItem;
 
 @Mixin(CactusBlock.class)
@@ -25,7 +26,7 @@ public abstract class CactusBlockMixin extends Block {
     private void ryso$onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
         if (entity instanceof ItemEntity itemEntity
             && itemEntity.getStack().getItem() instanceof SocksItem socksItem
-            && socksItem.id.equals("green_socks"))
+            && socksItem == RYSOItems.GREEN_SOCKS)
             ci.cancel();
     }
 }

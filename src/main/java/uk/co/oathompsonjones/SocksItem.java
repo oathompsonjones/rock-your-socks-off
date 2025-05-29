@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 import uk.co.oathompsonjones.integrations.Trinkets;
 
 public class SocksItem extends ArmorItem {
-    public final String id;
-    public final Effect effect;
+    private final String id;
+    private final Effect effect;
 
     public SocksItem(String id) {
         this(id, null, 0, new Item.Settings());
@@ -52,6 +52,14 @@ public class SocksItem extends ArmorItem {
             Trinkets.registerTrinket(this);
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public Effect getEffect() {
+        return effect;
+    }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         // Attempts to equip the item as a trinket before falling back to the default behaviour
@@ -81,7 +89,7 @@ public class SocksItem extends ArmorItem {
     }
 
     private static class SocksArmourMaterial implements ArmorMaterial {
-        String name;
+        private final String name;
 
         public SocksArmourMaterial(String name) {
             this.name = name;
@@ -129,13 +137,25 @@ public class SocksItem extends ArmorItem {
     }
 
     public static class Effect {
-        public StatusEffect effect;
-        public int          amplifier;
-        public int          cooldown = 60;
+        private final StatusEffect effect;
+        private final int          amplifier;
+        private final int          cooldown = 60;
 
         public Effect(StatusEffect effect, int amplifier) {
             this.effect    = effect;
             this.amplifier = amplifier;
+        }
+
+        public StatusEffect getEffect() {
+            return effect;
+        }
+
+        public int getAmplifier() {
+            return amplifier;
+        }
+
+        public int getCooldown() {
+            return cooldown;
         }
     }
 }
