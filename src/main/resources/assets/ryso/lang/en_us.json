@@ -28,5 +28,11 @@
   "effect.ryso.sure_footed": "Sure Footed",
   "effect.ryso.endermans_favor": "Enderman's Favor",
   "effect.ryso.cutesy": "Cutesy",
-  "effect.ryso.jolly_spirit": "Jolly Spirit"
+  "effect.ryso.jolly_spirit": "Jolly Spirit",
+  "advancement.ryso.first_socks.title": "First Socks",
+  "advancement.ryso.first_socks.description": "You made your first pair of socks!",
+  "advancement.ryso.first_functional_socks.title": "First Functional Socks",
+  "advancement.ryso.first_functional_socks.description": "You made your first pair of functional socks!",
+  "advancement.ryso.first_upgraded_socks.title": "First Upgraded Socks",
+  "advancement.ryso.first_upgraded_socks.description": "You made your first pair of upgraded socks!"
 }

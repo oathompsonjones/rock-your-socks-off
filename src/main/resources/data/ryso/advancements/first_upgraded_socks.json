@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "ryso:christmas_socks"
+    },
+    "title": {
+      "translate": "advancement.ryso.first_upgraded_socks.title"
+    },
+    "description": {
+      "translate": "advancement.ryso.first_upgraded_socks.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "ryso:first_functional_socks",
+  "criteria": {
+    "trigger_name": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:christmas_socks"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

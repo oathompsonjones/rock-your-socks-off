@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "ryso:socks"
+    },
+    "title": {
+      "translate": "advancement.ryso.first_socks.title"
+    },
+    "description": {
+      "translate": "advancement.ryso.first_socks.description"
+    },
+    "background": "minecraft:textures/block/white_wool.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "trigger_name": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:socks"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
