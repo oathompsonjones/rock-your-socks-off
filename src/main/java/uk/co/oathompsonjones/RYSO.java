@@ -1,7 +1,10 @@
 package uk.co.oathompsonjones;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,5 +31,13 @@ public class RYSO implements ModInitializer {
 
         // Register all items and item groups
         RYSOItems.initialize();
+
+        // Initialize resource packs
+        FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(modContainer -> {
+            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MOD_ID, "original_icons"),
+                                                              modContainer,
+                                                              ResourcePackActivationType.NORMAL
+            );
+        });
     }
 }

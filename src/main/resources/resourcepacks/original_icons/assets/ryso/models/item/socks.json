@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ryso:item/orange_socks"
+    "layer0": "ryso:item/socks"
   }
 }
