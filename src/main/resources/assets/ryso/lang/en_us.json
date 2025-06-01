@@ -29,6 +29,8 @@
   "effect.ryso.endermans_favor": "Enderman's Favor",
   "effect.ryso.cutesy": "Cutesy",
   "effect.ryso.jolly_spirit": "Jolly Spirit",
+  "advancement.ryso.root.title": "Rock Your Socks Off",
+  "advancement.ryso.root.description": "Socks keep your feet warm.",
   "advancement.ryso.first_socks.title": "First Socks",
   "advancement.ryso.first_socks.description": "You made your first pair of socks!",
   "advancement.ryso.first_functional_socks.title": "First Functional Socks",
