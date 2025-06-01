@@ -258,14 +258,10 @@ public class RYSOStatusEffects {
     //  attackers hunger
     // TODO: Ethereal socks (celestial grace) = made with light gray socks + gives attacks levitation for a short time
 
-    // TODO: Advancement for making your first pair of plain socks
-    // TODO: Advancement for making your first pair of functional socks
-    // TODO: Advancement for upgrading your first pair of socks to a better functional pair
     // TODO: Advancement for getting every pair of socks
     // TODO: A few sock specific advancements, i.e. volatile socks for double upgrade, grandma's socks for trading
     //  with the grandma villager, etc.
     // TODO: Generate advancements dynamically
     // TODO: Grandma villager that trades socks
-    // TODO: Warden antenna for the rainbow socks
     // TODO: Several built-in resource packs: plain, spotty, striped (default), heel and toe, glazed terracotta
 }

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "CNC",
-    "SBS",
+    "WBW",
     "CNC"
   ],
   "key": {
@@ -15,8 +15,8 @@
     "C": {
       "item": "minecraft:chorus_fruit"
     },
-    "S": {
-      "item": "minecraft:sculk_catalyst"
+    "W": {
+      "item": "ryso:warden_antenna"
     }
   },
   "result": {

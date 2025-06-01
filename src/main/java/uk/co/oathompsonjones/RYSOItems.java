@@ -11,6 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,15 +41,20 @@ public class RYSOItems {
                                                                        RYSOStatusEffects.ENDERMANS_FAVOR
     ));
     public static final Item PINK_SOCKS       = register(new SocksItem("pink_socks", RYSOStatusEffects.CUTESY));
-    public static final Item RAINBOW_SOCKS    = register(new SocksItem("rainbow_socks",
-                                                                       StatusEffects.RESISTANCE,
-                                                                       1,
-                                                                       // Make rainbow socks fireproof as they contain netherite scraps
-                                                                       new Item.Settings().fireproof()
+    public static final Item RAINBOW_SOCKS    = register(new SocksItem("rainbow_socks", StatusEffects.RESISTANCE, 1,
+                                                                       // Make rainbow socks fireproof as they
+                                                                       // contain netherite scraps and rare as
+                                                                       // they contain warden antennae
+                                                                       new Item.Settings()
+                                                                               .fireproof()
+                                                                               .rarity(Rarity.RARE)
     ));
     public static final Item CHRISTMAS_SOCKS  = register(new SocksItem("christmas_socks",
                                                                        RYSOStatusEffects.JOLLY_SPIRIT
     ));
+    public static final Item WARDEN_ANTENNA   = register(new Item(new Item.Settings().rarity(Rarity.RARE)),
+                                                         "warden_antenna"
+    );
 
     public static final List<Item> ITEMS = Arrays
             .stream(RYSOItems.class.getDeclaredFields())
