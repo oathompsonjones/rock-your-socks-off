@@ -265,6 +265,7 @@ public class RYSOStatusEffects {
     // TODO: Advancement for getting every pair of socks
     // TODO: A few sock specific advancements, i.e. volatile socks for double upgrade, grandma's socks for trading
     //  with the grandma villager, etc.
+    // TODO: Generate advancements dynamically
     // TODO: Grandma villager that trades socks
     // TODO: Warden antenna for the rainbow socks
     // TODO: Several built-in resource packs: plain, spotty, striped (default), heel and toe, glazed terracotta
