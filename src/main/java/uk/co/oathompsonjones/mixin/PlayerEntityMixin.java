@@ -22,7 +22,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     // Prevent the effects of Mining Fatigue from being applied when the player has Guardians Favor
     @Inject(method="getBlockBreakingSpeed", at=@At("RETURN"), cancellable=true)
-    private void modifyBreakingSpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
+    private void ryso$getBlockBreakingSpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
         if (this.hasStatusEffect(StatusEffects.MINING_FATIGUE)
             && this.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)) {
             var player = (PlayerEntity) (Object) this;

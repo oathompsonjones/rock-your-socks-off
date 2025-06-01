@@ -27,16 +27,16 @@ import uk.co.oathompsonjones.RYSOStatusEffects;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Unique
-    LivingEntity cutesyAttacker;
+    LivingEntity ryso$cutesyAttacker;
 
     @Unique
-    LivingEntity guardiansFavorAttacker;
+    LivingEntity ryso$guardiansFavorAttacker;
 
     @Unique
-    float endermansFavorChance = 0.33F;
+    float ryso$endermansFavorChance = 0.33F;
 
     @Unique
-    int endermansFavorCooldown;
+    int ryso$endermansFavorCooldown;
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -56,14 +56,12 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
 
     @Inject(method="tick", at=@At("HEAD"))
     private void ryso$tick(CallbackInfo ci) {
-        if (endermansFavorCooldown > 0)
-            endermansFavorCooldown--;
+        if (ryso$endermansFavorCooldown > 0)
+            ryso$endermansFavorCooldown--;
     }
 
     @Inject(method="damage", at=@At("HEAD"), cancellable=true)
-    public void ryso$damage(
-            DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci
-    ) {
+    public void ryso$damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> ci) {
         var entity = (LivingEntity) (Object) this;
 
         // Handle the poisonous effect
@@ -88,21 +86,21 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if ((entity instanceof PillagerEntity || entity instanceof VindicatorEntity)
             && source.getAttacker() instanceof LivingEntity attacker
             && attacker.hasStatusEffect(RYSOStatusEffects.CUTESY))
-            cutesyAttacker = attacker;
+            ryso$cutesyAttacker = attacker;
 
         // Handle the guardians favor effect
         if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
             && source.getAttacker() instanceof LivingEntity attacker
             && attacker.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR))
-            guardiansFavorAttacker = attacker;
+            ryso$guardiansFavorAttacker = attacker;
 
         // Handle the endermans favor effect
         if (this.hasStatusEffect(RYSOStatusEffects.ENDERMANS_FAVOR)
-            && endermansFavorCooldown == 0
-            && Math.random() <= endermansFavorChance
+            && ryso$endermansFavorCooldown == 0
+            && Math.random() <= ryso$endermansFavorChance
             && this.getHealth() > 1
             && this.getHealth() - amount <= 2) {
-            endermansFavorCooldown = 200;
+            ryso$endermansFavorCooldown = 200;
             this.applyDamage(source, this.getHealth() - 1);
             var stack = new ItemStack(Items.CHORUS_FRUIT);
             stack.getItem().finishUsing(stack, this.getWorld(), entity);
@@ -117,13 +115,13 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
             && !illager.hasActiveRaid()
             && target.hasStatusEffect(RYSOStatusEffects.CUTESY)
-            && cutesyAttacker != target)
+            && ryso$cutesyAttacker != target)
             ci.setReturnValue(false);
 
         // Prevent guardians from attacking players with the GUARDIANS_FAVOR effect unless provoked
         if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
             && target.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)
-            && guardiansFavorAttacker != target) {
+            && ryso$guardiansFavorAttacker != target) {
             ci.setReturnValue(false);
         }
     }

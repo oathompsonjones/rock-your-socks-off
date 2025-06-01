@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(FarmlandBlock.class)
-public class FarmlandBlockMixin extends Block {
+public abstract class FarmlandBlockMixin extends Block {
     public FarmlandBlockMixin(Settings settings) {
         super(settings);
     }
