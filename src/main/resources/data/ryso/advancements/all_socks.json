@@ -1,0 +1,236 @@
+{
+  "display": {
+    "icon": {
+      "item": "ryso:socks"
+    },
+    "title": {
+      "translate": "advancement.ryso.all_socks.title"
+    },
+    "description": {
+      "translate": "advancement.ryso.all_socks.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "ryso:first_upgraded_socks",
+  "criteria": {
+    "socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:socks"
+            ]
+          }
+        ]
+      }
+    },
+    "light_gray_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:light_gray_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "gray_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:gray_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "black_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:black_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "brown_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:brown_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "red_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:red_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "orange_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:orange_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "yellow_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:yellow_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "lime_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:lime_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "green_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:green_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "cyan_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:cyan_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "light_blue_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:light_blue_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "blue_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:blue_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "purple_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:purple_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "magenta_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:magenta_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "pink_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:pink_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "rainbow_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:rainbow_socks"
+            ]
+          }
+        ]
+      }
+    },
+    "christmas_socks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:christmas_socks"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

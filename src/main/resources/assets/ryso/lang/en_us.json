@@ -37,5 +37,7 @@
   "advancement.ryso.first_functional_socks.title": "First Functional Socks",
   "advancement.ryso.first_functional_socks.description": "You made your first pair of functional socks!",
   "advancement.ryso.first_upgraded_socks.title": "First Upgraded Socks",
-  "advancement.ryso.first_upgraded_socks.description": "You made your first pair of upgraded socks!"
+  "advancement.ryso.first_upgraded_socks.description": "You made your first pair of upgraded socks!",
+  "advancement.ryso.all_socks.title": "All Socks",
+  "advancement.ryso.all_socks.description": "You made every type of sock!"
 }
