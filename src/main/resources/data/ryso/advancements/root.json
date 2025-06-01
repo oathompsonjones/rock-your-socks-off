@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "ryso:socks"
+    },
+    "title": {
+      "translate": "advancement.ryso.root.title"
+    },
+    "description": {
+      "translate": "advancement.ryso.root.description"
+    },
+    "background": "minecraft:textures/block/white_wool.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "never": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -9,12 +9,12 @@
     "description": {
       "translate": "advancement.ryso.first_socks.description"
     },
-    "background": "minecraft:textures/block/white_wool.png",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
+  "parent": "ryso:root",
   "criteria": {
     "trigger_name": {
       "trigger": "minecraft:inventory_changed",
