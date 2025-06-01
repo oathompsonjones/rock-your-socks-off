@@ -109,7 +109,6 @@ public class RYSOStatusEffects {
     }
 
     // Makes piglins neutral to the player + better trades
-    // TODO: Trading is not implemented yet
     private static class PiglinsFavorStatusEffect extends StatusEffect {
         public PiglinsFavorStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xF07613);

@@ -9,6 +9,7 @@
     "FarmlandBlockMixin",
     "LivingEntityMixin",
     "PiglinBrainMixin",
+    "PiglinEntityMixin",
     "PlayerEntityMixin",
     "PowderSnowBlockMixin",
     "StatusEffectMixin"
