@@ -9,6 +9,12 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// TODO: A few sock specific advancements, i.e. volatile socks for double upgrade, grandma's socks for trading with
+//  the grandma villager, etc.
+// TODO: Generate advancements dynamically
+// TODO: Grandma villager that trades socks
+// TODO: Several built-in resource packs: plain, spotty, striped (default), heel and toe, glazed terracotta
+
 public class RYSO implements ModInitializer {
     // This logger is used to write text to the console and the log file.
     // It is considered best practice to use your mod id as the logger's name.

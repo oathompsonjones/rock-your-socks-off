@@ -237,30 +237,4 @@ public class RYSOStatusEffects {
             return true;
         }
     }
-
-    // TODO: Vampire socks (leeching) = attack without weapon makes you heal as much damage as you deal
-    // TODO: Backpack socks (beast of burden) = have 4 extra inventory slots that can hold any item
-    // TODO: Grandma's socks (cozy) = immunity to freezing/burning damage + becomes part of the christmas socks recipe
-    // TODO: Firework socks (primed) = detonate several fireworks upon death, dealing damage to nearby entities
-    // TODO: Explosive socks (creeper's favour) = made with firework socks + makes creepers neutral to the player
-    // TODO: Volatile socks (fortitude) = made with explosive socks + immunity to explosions
-    // TODO: Midas socks (midas touch) = made with orange socks + makes all mobs drop gold nuggets, ingots and rarely
-    //  blocks instead of their usual drops
-    // TODO: Music socks (musical) = each step plays the note block sound of the block you are walking on
-    // TODO: Flowering socks (florist) = made with lime socks + 10% chance of placing a flower when walking on grass
-    //  + bees follow you and pollinate off you
-    // TODO: Treasure socks (spelunker's eye) = made with purple socks + random item from
-    //  dungeon/shipwreck/treasure/mineshaft loot tables every 500 steps
-    // TODO: XP socks (experienced) = looting for xp + maybe cheaper enchanting/anvil costs
-    // TODO: Werewolf socks (strength) = made with black socks + gives strength at night with the level based on the
-    //  moon phase
-    // TODO: Chicken socks (avian alliance) = made with light blue socks + crouching has chance to drop eggs + gives
-    //  attackers hunger
-    // TODO: Ethereal socks (celestial grace) = made with light gray socks + gives attacks levitation for a short time
-
-    // TODO: A few sock specific advancements, i.e. volatile socks for double upgrade, grandma's socks for trading
-    //  with the grandma villager, etc.
-    // TODO: Generate advancements dynamically
-    // TODO: Grandma villager that trades socks
-    // TODO: Several built-in resource packs: plain, spotty, striped (default), heel and toe, glazed terracotta
 }
