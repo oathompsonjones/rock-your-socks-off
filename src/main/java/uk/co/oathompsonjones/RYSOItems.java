@@ -53,11 +53,13 @@ public class RYSOItems {
                                                                                // Warden antenna
                                                                                .rarity(Rarity.RARE)
     ));
+    // TODO: Spooky socks (spooky) = makes zombies and skeletons neutral to the player
     // TODO: Vampire socks (leeching) = attack without weapon makes you heal as much damage as you deal
     // TODO: Backpack socks (beast of burden) = have 4 extra inventory slots that can hold any item
     // TODO: Grandma's socks (cozy) = immunity to freezing/burning damage + becomes part of the christmas socks recipe
     // TODO: Firework socks (primed) = detonate several fireworks upon death, dealing damage to nearby entities
     // TODO: Music socks (musical) = each step plays the note block sound of the block you are walking on
+    // TODO: XP socks (experienced) = looting for xp + maybe cheaper enchanting/anvil costs
 
     // Double upgrade socks
     public static final Item CHRISTMAS_SOCKS = register(new SocksItem("christmas_socks",
@@ -75,11 +77,14 @@ public class RYSOItems {
     // TODO: Chicken socks (avian alliance) = made with light blue socks + crouching has chance to drop eggs + gives
     //  attackers hunger
     // TODO: Ethereal socks (celestial grace) = made with light gray socks + gives attacks levitation for a short time
+    // TODO: Dredge socks (out of element) = made with blue socks + attack and speed boost in water and rain
+    // TODO: Souldbound socks (styx and bones) = made with spooky socks + makes all undead mobs (except the wither)
+    //  and ghasts neutral to the player
 
     // Triple upgrade socks
     // TODO: Volatile socks (fortitude) = made with explosive socks + immunity to explosions
-    // TODO: XP socks (experienced) = looting for xp + maybe cheaper enchanting/anvil costs
-
+    // TODO: Draconic socks (dragon's flight) = made with ethereal socks + gives creative flight which causes hunger to
+    //  deplete at same rate as sprinting and player falls out of the sky if they run out of hunger
 
     public static final List<Item> ITEMS = Arrays
             .stream(RYSOItems.class.getDeclaredFields())
