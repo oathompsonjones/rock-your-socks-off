@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "ryso:warden_antenna"
+    },
+    "title": {
+      "translate": "advancement.ryso.warden_antenna.title"
+    },
+    "description": {
+      "translate": "advancement.ryso.warden_antenna.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "ryso:root",
+  "criteria": {
+    "trigger_name": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ryso:warden_antenna"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
