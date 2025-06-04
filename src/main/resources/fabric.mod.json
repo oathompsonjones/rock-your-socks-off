@@ -17,6 +17,9 @@
   "icon": "assets/ryso/icon.png",
   "environment": "*",
   "entrypoints": {
+    "fabric-datagen": [
+      "uk.co.oathompsonjones.RYSODataGenerator"
+    ],
     "main": [
       "uk.co.oathompsonjones.RYSO"
     ],

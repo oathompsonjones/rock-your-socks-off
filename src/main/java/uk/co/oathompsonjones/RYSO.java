@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 // TODO: Generate advancements dynamically
 // TODO: Grandma villager that trades socks
 // TODO: Several built-in resource packs: plain, spotty, striped (default), heel and toe, glazed terracotta
+// TODO: Ability to wash socks in a cauldron to remove status effects + advancement for washing socks
 
 public class RYSO implements ModInitializer {
     // This logger is used to write text to the console and the log file.
@@ -41,6 +42,9 @@ public class RYSO implements ModInitializer {
 
         // Register all blocks
         RYSOBlocks.initialize();
+
+        // Register the villager
+        RYSOVillagers.initialize();
 
         // Initialize resource packs
         FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(modContainer -> {

@@ -41,5 +41,6 @@
   "advancement.ryso.all_socks.title": "A Sock for Every Occasion",
   "advancement.ryso.all_socks.description": "Make every type of sock, you sock hoarder!",
   "advancement.ryso.warden_antenna.title": "Break the Silence",
-  "advancement.ryso.warden_antenna.description": "Relieve the Warden of its antenna."
+  "advancement.ryso.warden_antenna.description": "Relieve the Warden of its antenna.",
+  "entity.minecraft.villager.socks_trader": "Grandma"
 }
