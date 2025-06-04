@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import uk.co.oathompsonjones.RYSOItems;
-import uk.co.oathompsonjones.SocksItem;
 
 @Mixin(CactusBlock.class)
 public abstract class CactusBlockMixin extends Block {
@@ -24,9 +23,7 @@ public abstract class CactusBlockMixin extends Block {
     // Prevent green socks from breaking when hitting cactus
     @Inject(method="onEntityCollision", at=@At("HEAD"), cancellable=true)
     private void ryso$onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        if (entity instanceof ItemEntity itemEntity
-            && itemEntity.getStack().getItem() instanceof SocksItem socksItem
-            && socksItem == RYSOItems.GREEN_SOCKS)
+        if (entity instanceof ItemEntity itemEntity && itemEntity.getStack().getItem() == RYSOItems.GREEN_SOCKS)
             ci.cancel();
     }
 }
