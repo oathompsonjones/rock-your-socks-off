@@ -39,6 +39,9 @@ public class RYSO implements ModInitializer {
         // Register all items and item groups
         RYSOItems.initialize();
 
+        // Register all blocks
+        RYSOBlocks.initialize();
+
         // Initialize resource packs
         FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(modContainer -> {
             ResourceManagerHelper.registerBuiltinResourcePack(

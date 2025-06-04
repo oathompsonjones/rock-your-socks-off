@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ryso:block/warden_antenna",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ryso:block/warden_antenna",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "ryso:block/warden_antenna",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "ryso:block/warden_antenna",
+      "y": 180
+    }
+  }
+}
