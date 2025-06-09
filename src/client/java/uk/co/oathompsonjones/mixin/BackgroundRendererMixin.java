@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(BackgroundRenderer.class)
-public class BackgroundRendererMixin {
+public abstract class BackgroundRendererMixin {
     @Inject(method="getFogModifier", at=@At("HEAD"), cancellable=true)
     private static void ryso$getFogModifier(Entity entity, float tickDelta, CallbackInfoReturnable<Object> ci) {
         if (entity instanceof LivingEntity livingEntity
