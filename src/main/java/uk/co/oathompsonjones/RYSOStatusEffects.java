@@ -221,7 +221,6 @@ public class RYSOStatusEffects {
     }
 
     // Hero of the village (gifts, not discounts) + walk on powdered snow
-    // TODO: Hero of the village is not implemented yet
     private static class JollySpiritStatusEffect extends StatusEffect {
         public JollySpiritStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0xA12722);
