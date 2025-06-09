@@ -1,7 +1,12 @@
 package uk.co.oathompsonjones;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,11 +17,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import uk.co.oathompsonjones.integrations.Trinkets;
+
+import java.util.List;
+import java.util.Objects;
 
 public class SocksItem extends ArmorItem {
     private final String id;
@@ -86,6 +97,25 @@ public class SocksItem extends ArmorItem {
                                                                 true
                 ));
         }
+    }
+
+    @Override
+    public void appendTooltip(
+            ItemStack stack,
+            @Nullable
+            World world, List<Text> tooltip, TooltipContext context
+    ) {
+        tooltip.add(Text.translatable("tooltip.ryso." + id + ".0").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("tooltip.ryso." + id + ".1").formatted(Formatting.GRAY));
+        if (!Objects.equals(id, "socks"))
+            tooltip.add(Text.literal(""));
+    }
+
+    @Override
+    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(
+            ItemStack stack, EquipmentSlot slot
+    ) {
+        return ImmutableMultimap.of();
     }
 
     private static class SocksArmourMaterial implements ArmorMaterial {
