@@ -173,7 +173,6 @@ public class RYSOStatusEffects {
     }
 
     // Applies speed + walks up blocks like a horse
-    // TODO: Walking up blocks is not implemented yet
     private static class SureFootedStatusEffect extends StatusEffect {
         public SureFootedStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x792AAC);
