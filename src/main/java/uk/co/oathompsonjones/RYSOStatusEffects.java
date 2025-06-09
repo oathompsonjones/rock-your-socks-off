@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class RYSOStatusEffects {
     public static final StatusEffect POISONOUS       = register("poisonous", new PoisonousStatusEffect());
-    public static final StatusEffect STEEL_SKIN      = register("steel_skin", new SteelSkinStatusEffect());
+    public static final StatusEffect STEEL_BODY      = register("steel_body", new SteelBodyStatusEffect());
     public static final StatusEffect TRUE_SIGHT      = register("true_sight", new TrueSightStatusEffect());
     public static final StatusEffect SLIPPERY        = register("slippery", new SlipperyStatusEffect());
     public static final StatusEffect PIGLINS_FAVOR   = register("piglins_favor", new PiglinsFavorStatusEffect());
@@ -58,8 +58,8 @@ public class RYSOStatusEffects {
     }
 
     // Immune to poison
-    private static class SteelSkinStatusEffect extends StatusEffect {
-        public SteelSkinStatusEffect() {
+    private static class SteelBodyStatusEffect extends StatusEffect {
+        public SteelBodyStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x3E4447);
         }
 

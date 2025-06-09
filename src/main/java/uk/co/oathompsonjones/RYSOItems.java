@@ -24,7 +24,7 @@ public class RYSOItems {
     public static final Item LIGHT_GRAY_SOCKS = register(new SocksItem("light_gray_socks",
                                                                        RYSOStatusEffects.POISONOUS
     ));
-    public static final Item GRAY_SOCKS       = register(new SocksItem("gray_socks", RYSOStatusEffects.STEEL_SKIN));
+    public static final Item GRAY_SOCKS       = register(new SocksItem("gray_socks", RYSOStatusEffects.STEEL_BODY));
     public static final Item BLACK_SOCKS      = register(new SocksItem("black_socks", RYSOStatusEffects.TRUE_SIGHT));
     public static final Item BROWN_SOCKS      = register(new SocksItem("brown_socks", RYSOStatusEffects.SLIPPERY));
     public static final Item RED_SOCKS        = register(new SocksItem("red_socks", StatusEffects.REGENERATION));
