@@ -16,7 +16,9 @@
     "StatusEffectMixin"
   ],
   "client": [
+    "BackgroundRendererMixin"
   ],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
