@@ -74,7 +74,7 @@ public class RYSOStatusEffects {
     }
 
     // Night vision + immunity to darkness and blindness
-    // TODO: Anti blindness/darkness does not work in production yet
+    // TODO (1.0): Anti blindness/darkness does not work in production yet
     private static class TrueSightStatusEffect extends StatusEffect {
         public TrueSightStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x1FF6C8);
@@ -82,8 +82,9 @@ public class RYSOStatusEffects {
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-            // TODO: This works, but it causes the night vision icon to appear in the inventory, which is not ideal.
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 1, 0, false, false));
+            // TODO (1.0): This works, but it causes the night vision icon to appear in the inventory, which is not
+            //  ideal.
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 2, 0, true, false));
         }
 
         @Override

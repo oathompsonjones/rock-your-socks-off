@@ -1,28 +1,7 @@
 package uk.co.oathompsonjones;
 
-import com.google.common.collect.ImmutableSet;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
-import net.minecraft.village.TradeOffer;
-import net.minecraft.village.VillagerProfession;
-import net.minecraft.world.poi.PointOfInterestType;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class RYSOVillagers {
-    public static final RegistryKey<PointOfInterestType> SOCKS_POI_KEY = poiKey("socks_poi");
+    /* TODO (2.0): public static final RegistryKey<PointOfInterestType> SOCKS_POI_KEY = poiKey("socks_poi");
     public static final PointOfInterestType              SOCKS_POI     = registerPoi("socks_poi", Blocks.FURNACE);
 
     public static final VillagerProfession SOCKS_TRADER = registerProfession("socks_trader", SOCKS_POI_KEY);
@@ -41,7 +20,7 @@ public class RYSOVillagers {
     }
 
     private static PointOfInterestType registerPoi(String name, Block block) {
-        return PointOfInterestHelper.register(new Identifier(RYSO.MOD_ID, name), 1, 1, block);
+        return PointOfInterestHelper.register(new Identifier(RYSO.MOD_ID, name), 1, 16, block);
     }
 
     private static RegistryKey<PointOfInterestType> poiKey(String name) {
@@ -146,7 +125,7 @@ public class RYSOVillagers {
         TradeOfferHelper.registerVillagerOffers(SOCKS_TRADER, 4, factories -> {
             factories.add((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 32),
                                                              new ItemStack(RYSOItems.SOCKS),
-                                                             // TODO: Change this to Grandma's Socks
+                                                             // TODO (2.0): Change this to Grandma's Socks
                                                              new ItemStack(RYSOItems.CHRISTMAS_SOCKS),
                                                              4,
                                                              12,
@@ -181,5 +160,5 @@ public class RYSOVillagers {
                 );
             });
         });
-    }
+    } */
 }
