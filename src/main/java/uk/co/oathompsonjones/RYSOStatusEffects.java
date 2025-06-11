@@ -1,6 +1,7 @@
 package uk.co.oathompsonjones;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
@@ -75,19 +76,50 @@ public class RYSOStatusEffects {
 
     // Night vision + immunity to darkness and blindness
     private static class TrueSightStatusEffect extends StatusEffect {
+        private int priorNightVisionDuration;
+
         public TrueSightStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x1FF6C8);
         }
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-            // TODO: Can the icon in the inventory be hidden?
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 3, amplifier, true, false));
         }
 
         @Override
         public boolean canApplyUpdateEffect(int duration, int amplifier) {
             return true;
+        }
+
+        @Override
+        public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+            super.onRemoved(entity, attributes, amplifier);
+            entity.removeStatusEffect(StatusEffects.NIGHT_VISION);
+            // Restore the prior duration of night vision if it was set
+            if (priorNightVisionDuration > 0)
+                entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,
+                                                                priorNightVisionDuration,
+                                                                amplifier,
+                                                                true,
+                                                                false
+                ));
+        }
+
+        @Override
+        public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+            super.onApplied(entity, attributes, amplifier);
+            if (entity.hasStatusEffect(StatusEffects.NIGHT_VISION)) {
+                // Store the prior duration of night vision
+                StatusEffectInstance nightVision = entity.getStatusEffect(StatusEffects.NIGHT_VISION);
+                if (nightVision != null)
+                    priorNightVisionDuration = nightVision.getDuration();
+            }
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,
+                                                            StatusEffectInstance.INFINITE,
+                                                            amplifier,
+                                                            true,
+                                                            false
+            ));
         }
     }
 
