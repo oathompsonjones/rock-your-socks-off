@@ -125,4 +125,12 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             ci.setReturnValue(false);
         }
     }
+
+    // Make sure that the TRUE_SIGHT effect prevents blindness and darkness effects from applying
+    @Inject(method="hasStatusEffect", at=@At("HEAD"), cancellable=true)
+    private void ryso$hasStatusEffect(StatusEffect effect, CallbackInfoReturnable<Boolean> cir) {
+        if ((effect == StatusEffects.BLINDNESS || effect == StatusEffects.DARKNESS)
+            && hasStatusEffect(RYSOStatusEffects.TRUE_SIGHT))
+            cir.setReturnValue(false);
+    }
 }

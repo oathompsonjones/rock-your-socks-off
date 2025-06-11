@@ -16,7 +16,9 @@
     "StatusEffectMixin"
   ],
   "client": [
-    "BackgroundRendererMixin"
+    "BackgroundRendererMixin",
+    "GameRendererMixin",
+    "LightmapTextureManagerMixin"
   ],
   "server": [],
   "injectors": {
