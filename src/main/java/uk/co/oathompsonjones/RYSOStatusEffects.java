@@ -5,6 +5,8 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -72,7 +74,6 @@ public class RYSOStatusEffects {
     }
 
     // Night vision + immunity to darkness and blindness
-    // TODO (1.0): Anti blindness/darkness does not work in production yet
     private static class TrueSightStatusEffect extends StatusEffect {
         public TrueSightStatusEffect() {
             super(StatusEffectCategory.BENEFICIAL, 0x1FF6C8);
@@ -80,6 +81,8 @@ public class RYSOStatusEffects {
 
         @Override
         public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+            // TODO: Can the icon in the inventory be hidden?
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 3, amplifier, true, false));
         }
 
         @Override
