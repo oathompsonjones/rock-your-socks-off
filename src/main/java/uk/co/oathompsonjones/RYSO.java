@@ -42,6 +42,9 @@ public class RYSO implements ModInitializer {
         // Register all blocks
         RYSOBlocks.initialize();
 
+        // Register all cauldron behaviours
+        RYSOCauldronBehaviours.register();
+
         // Register the villager
         // TODO (2.0): RYSOVillagers.initialize();
 
