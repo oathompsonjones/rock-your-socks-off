@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "ryso:socks_poi",
-      "required": false
-    }
-  ]
-}
