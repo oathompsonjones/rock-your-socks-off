@@ -15,12 +15,6 @@
     "PowderSnowBlockMixin",
     "StatusEffectMixin"
   ],
-  "client": [
-    "BackgroundRendererMixin",
-    "GameRendererMixin",
-    "LightmapTextureManagerMixin"
-  ],
-  "server": [],
   "injectors": {
     "defaultRequire": 1
   }

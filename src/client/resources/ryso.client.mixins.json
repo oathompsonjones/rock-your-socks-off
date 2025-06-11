@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "uk.co.oathompsonjones.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BackgroundRendererMixin",
+    "GameRendererMixin",
+    "LightmapTextureManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
