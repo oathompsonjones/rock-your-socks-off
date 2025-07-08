@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import uk.co.oathompsonjones.RYSOBlocks;
 import uk.co.oathompsonjones.RYSOStatusEffects;
 
 @Mixin(LivingEntity.class)
@@ -132,5 +133,13 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if ((effect == StatusEffects.BLINDNESS || effect == StatusEffects.DARKNESS)
             && hasStatusEffect(RYSOStatusEffects.TRUE_SIGHT))
             cir.setReturnValue(false);
+    }
+
+    // Handle the dropping of the Warden Antenna when the Warden is killed (this method ensures that data pack loot
+    // tables don't override this behavior)
+    @Inject(method="dropLoot", at=@At("HEAD"))
+    private void ryso$dropLoot(DamageSource damageSource, boolean causedByPlayer, CallbackInfo ci) {
+        if (causedByPlayer)
+            this.dropStack(new ItemStack(RYSOBlocks.WARDEN_ANTENNA));
     }
 }
