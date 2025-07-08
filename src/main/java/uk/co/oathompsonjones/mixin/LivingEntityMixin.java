@@ -139,7 +139,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     // tables don't override this behavior)
     @Inject(method="dropLoot", at=@At("HEAD"))
     private void ryso$dropLoot(DamageSource damageSource, boolean causedByPlayer, CallbackInfo ci) {
-        if (causedByPlayer)
+        if (this.getType() == EntityType.WARDEN && causedByPlayer)
             this.dropStack(new ItemStack(RYSOBlocks.WARDEN_ANTENNA));
     }
 }
