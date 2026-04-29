@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.integrations;
+package uk.co.oathompsonjones.ryso.integrations;
 
 import dev.emi.trinkets.api.*;
 import net.minecraft.entity.LivingEntity;
@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.util.TypedActionResult;
-import uk.co.oathompsonjones.RYSOItems;
-import uk.co.oathompsonjones.SocksItem;
+import uk.co.oathompsonjones.ryso.RYSOItems;
+import uk.co.oathompsonjones.ryso.SocksItem;
 
 import java.util.ArrayList;
 import java.util.List;

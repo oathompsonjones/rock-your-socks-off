@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -24,7 +24,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import uk.co.oathompsonjones.integrations.Trinkets;
+import uk.co.oathompsonjones.ryso.integrations.Trinkets;
 
 import java.util.List;
 import java.util.Objects;
@@ -91,10 +91,10 @@ public class SocksItem extends ArmorItem {
                     .getEquippedStack(EquipmentSlot.FEET)
                     .isOf(socks))
                 player.addStatusEffect(new StatusEffectInstance(effect.effect,
-                                                                effect.cooldown,
-                                                                effect.amplifier,
-                                                                false,
-                                                                true
+                        effect.cooldown,
+                        effect.amplifier,
+                        false,
+                        true
                 ));
         }
     }

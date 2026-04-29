@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
@@ -22,12 +22,11 @@ public class RYSOStatusEffects {
     public static final StatusEffect THICK_SKIN      = register("thick_skin", new ThickSkinStatusEffect());
     public static final StatusEffect GUARDIANS_FAVOR = register("guardians_favor", new GuardiansFavorStatusEffect());
     public static final StatusEffect SURE_FOOTED     = register("sure_footed",
-                                                                new SureFootedStatusEffect().addAttributeModifier(
-                                                                        EntityAttributes.GENERIC_MOVEMENT_SPEED,
-                                                                        "91AEAA56-376B-4498-935B-2F7F68070635",
-                                                                        0.2F,
-                                                                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL
-                                                                )
+            new SureFootedStatusEffect().addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
+                    "91AEAA56-376B-4498-935B-2F7F68070635",
+                    0.2F,
+                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+            )
     );
     public static final StatusEffect ENDERMANS_FAVOR = register("endermans_favor", new EndermansFavorStatusEffect());
     public static final StatusEffect CUTESY          = register("cutesy", new CutesyStatusEffect());
@@ -94,15 +93,19 @@ public class RYSOStatusEffects {
         @Override
         public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
             super.onRemoved(entity, attributes, amplifier);
+            //            CompletableFuture.delayedExecutor(100, TimeUnit.MILLISECONDS).execute(() -> {
+            //                if (!entity.hasStatusEffect(RYSOStatusEffects.TRUE_SIGHT)) {
             entity.removeStatusEffect(StatusEffects.NIGHT_VISION);
             // Restore the prior duration of night vision if it was set
             if (priorNightVisionDuration > 0)
                 entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,
-                                                                priorNightVisionDuration,
-                                                                amplifier,
-                                                                true,
-                                                                false
+                        priorNightVisionDuration,
+                        amplifier,
+                        true,
+                        false
                 ));
+            //                }
+            //            });
         }
 
         @Override
@@ -115,10 +118,10 @@ public class RYSOStatusEffects {
                     priorNightVisionDuration = nightVision.getDuration();
             }
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,
-                                                            StatusEffectInstance.INFINITE,
-                                                            amplifier,
-                                                            true,
-                                                            false
+                    StatusEffectInstance.INFINITE,
+                    amplifier,
+                    true,
+                    false
             ));
         }
     }

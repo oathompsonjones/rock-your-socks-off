@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.interfaces;
+package uk.co.oathompsonjones.ryso.interfaces;
 
 import net.minecraft.entity.player.PlayerEntity;
 

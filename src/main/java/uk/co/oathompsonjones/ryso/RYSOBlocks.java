@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -24,8 +24,8 @@ import java.util.List;
 
 public class RYSOBlocks {
     public static final Block WARDEN_ANTENNA = register(new WardenAntennaBlock(),
-                                                        "warden_antenna",
-                                                        new Item.Settings().rarity(Rarity.RARE)
+            "warden_antenna",
+            new Item.Settings().rarity(Rarity.RARE)
     );
 
     public static final List<Block> BLOCKS = Arrays

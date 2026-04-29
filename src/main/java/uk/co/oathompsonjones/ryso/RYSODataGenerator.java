@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;

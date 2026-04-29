@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.Angerable;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 @Mixin(EndermanEntity.class)
 public abstract class EndermanEntityMixin extends HostileEntity implements Angerable {

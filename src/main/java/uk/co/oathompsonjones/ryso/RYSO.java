@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;

@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 import java.util.Objects;
 
@@ -24,7 +24,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Inject(method="getBlockBreakingSpeed", at=@At("RETURN"), cancellable=true)
     private void ryso$getBlockBreakingSpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
         if (this.hasStatusEffect(StatusEffects.MINING_FATIGUE)
-            && this.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)) {
+                && this.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)) {
             var player = (PlayerEntity) (Object) this;
 
             // Override mining fatigue by recalculating speed as if there were no fatigue

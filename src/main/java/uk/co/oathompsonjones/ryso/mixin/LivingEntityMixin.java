@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
@@ -22,8 +22,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSOBlocks;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSOBlocks;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity implements Attackable {
@@ -78,29 +78,29 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         // Handle the thick skin effect
         if (this.hasStatusEffect(RYSOStatusEffects.THICK_SKIN) && (
                 source.isOf(DamageTypes.CACTUS)
-                || source.isOf(DamageTypes.SWEET_BERRY_BUSH)
-                || source.isOf(DamageTypes.THORNS)
+                        || source.isOf(DamageTypes.SWEET_BERRY_BUSH)
+                        || source.isOf(DamageTypes.THORNS)
         ))
             ci.cancel();
 
         // Handle the cutesy effect
         if ((entity instanceof PillagerEntity || entity instanceof VindicatorEntity)
-            && source.getAttacker() instanceof LivingEntity attacker
-            && attacker.hasStatusEffect(RYSOStatusEffects.CUTESY))
+                && source.getAttacker() instanceof LivingEntity attacker
+                && attacker.hasStatusEffect(RYSOStatusEffects.CUTESY))
             ryso$cutesyAttacker = attacker;
 
         // Handle the guardians favor effect
         if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
-            && source.getAttacker() instanceof LivingEntity attacker
-            && attacker.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR))
+                && source.getAttacker() instanceof LivingEntity attacker
+                && attacker.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR))
             ryso$guardiansFavorAttacker = attacker;
 
         // Handle the endermans favor effect
         if (this.hasStatusEffect(RYSOStatusEffects.ENDERMANS_FAVOR)
-            && ryso$endermansFavorCooldown == 0
-            && Math.random() <= ryso$endermansFavorChance
-            && this.getHealth() > 1
-            && this.getHealth() - amount <= 2) {
+                && ryso$endermansFavorCooldown == 0
+                && Math.random() <= ryso$endermansFavorChance
+                && this.getHealth() > 1
+                && this.getHealth() - amount <= 2) {
             ryso$endermansFavorCooldown = 200;
             this.applyDamage(source, this.getHealth() - 1);
             var stack = new ItemStack(Items.CHORUS_FRUIT);
@@ -113,16 +113,16 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     public void ryso$canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> ci) {
         // Prevent pillagers and vindicators from attacking players with the CUTESY effect outside of raids unless provoked
         if (((LivingEntity) (Object) this) instanceof IllagerEntity illager
-            && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
-            && !illager.hasActiveRaid()
-            && target.hasStatusEffect(RYSOStatusEffects.CUTESY)
-            && ryso$cutesyAttacker != target)
+                && (illager instanceof PillagerEntity || illager instanceof VindicatorEntity)
+                && !illager.hasActiveRaid()
+                && target.hasStatusEffect(RYSOStatusEffects.CUTESY)
+                && ryso$cutesyAttacker != target)
             ci.setReturnValue(false);
 
         // Prevent guardians from attacking players with the GUARDIANS_FAVOR effect unless provoked
         if ((this.getType() == EntityType.GUARDIAN || this.getType() == EntityType.ELDER_GUARDIAN)
-            && target.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)
-            && ryso$guardiansFavorAttacker != target) {
+                && target.hasStatusEffect(RYSOStatusEffects.GUARDIANS_FAVOR)
+                && ryso$guardiansFavorAttacker != target) {
             ci.setReturnValue(false);
         }
     }
@@ -131,7 +131,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Inject(method="hasStatusEffect", at=@At("HEAD"), cancellable=true)
     private void ryso$hasStatusEffect(StatusEffect effect, CallbackInfoReturnable<Boolean> cir) {
         if ((effect == StatusEffects.BLINDNESS || effect == StatusEffects.DARKNESS)
-            && hasStatusEffect(RYSOStatusEffects.TRUE_SIGHT))
+                && hasStatusEffect(RYSOStatusEffects.TRUE_SIGHT))
             cir.setReturnValue(false);
     }
 
@@ -139,7 +139,11 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     // tables don't override this behavior)
     @Inject(method="dropLoot", at=@At("HEAD"))
     private void ryso$dropLoot(DamageSource damageSource, boolean causedByPlayer, CallbackInfo ci) {
-        if (this.getType() == EntityType.WARDEN && causedByPlayer)
+        System.out.println("RYSO dropLoot ran: " + this.getType().getName().getString());
+
+        if (causedByPlayer && this.getType() == EntityType.WARDEN) {
+            System.out.println("RYSO dropping antenna");
             this.dropStack(new ItemStack(RYSOBlocks.WARDEN_ANTENNA));
+        }
     }
 }

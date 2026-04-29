@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
@@ -17,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSOStatusEffects;
-import uk.co.oathompsonjones.interfaces.PiglinEntityAccessor;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.interfaces.PiglinEntityAccessor;
 
 import java.util.List;
 import java.util.Objects;
@@ -51,15 +51,15 @@ public abstract class PiglinBrainMixin {
     private static void ryso$getBarteredItem(PiglinEntity piglin, CallbackInfoReturnable<List<ItemStack>> ci) {
         var player = ((PiglinEntityAccessor) piglin).ryso$getBarteringWith();
         if (player != null
-            && player.hasStatusEffect(RYSOStatusEffects.PIGLINS_FAVOR)
-            && piglin.getWorld() instanceof ServerWorld) {
+                && player.hasStatusEffect(RYSOStatusEffects.PIGLINS_FAVOR)
+                && piglin.getWorld() instanceof ServerWorld) {
             ci.setReturnValue(Objects
-                                      .requireNonNull(piglin.getWorld().getServer())
-                                      .getLootManager()
-                                      .getLootTable(new Identifier("ryso", "gameplay/piglin_bartering_custom"))
-                                      .generateLoot(new LootContextParameterSet.Builder((ServerWorld) piglin.getWorld())
-                                                            .add(LootContextParameters.THIS_ENTITY, piglin)
-                                                            .build(LootContextTypes.BARTER)));
+                    .requireNonNull(piglin.getWorld().getServer())
+                    .getLootManager()
+                    .getLootTable(new Identifier("ryso", "gameplay/piglin_bartering_custom"))
+                    .generateLoot(new LootContextParameterSet.Builder((ServerWorld) piglin.getWorld())
+                            .add(LootContextParameters.THIS_ENTITY, piglin)
+                            .build(LootContextTypes.BARTER)));
         }
     }
 }

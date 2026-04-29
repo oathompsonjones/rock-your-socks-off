@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleState;
@@ -20,8 +20,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSO;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSO;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 import java.util.Map;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 @Mixin(FarmlandBlock.class)
 public abstract class FarmlandBlockMixin extends Block {

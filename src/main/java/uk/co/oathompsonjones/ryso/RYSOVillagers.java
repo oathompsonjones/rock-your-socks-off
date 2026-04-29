@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 public class RYSOVillagers {
     /* TODO (2.0): public static final RegistryKey<PointOfInterestType> SOCKS_POI_KEY = poiKey("socks_poi");

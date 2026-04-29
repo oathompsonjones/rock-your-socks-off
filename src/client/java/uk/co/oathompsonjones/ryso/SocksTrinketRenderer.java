@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -15,7 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import uk.co.oathompsonjones.integrations.Trinkets;
+import uk.co.oathompsonjones.ryso.integrations.Trinkets;
 
 import java.util.List;
 

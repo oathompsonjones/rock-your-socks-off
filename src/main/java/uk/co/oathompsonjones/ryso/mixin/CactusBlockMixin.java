@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import uk.co.oathompsonjones.RYSOItems;
+import uk.co.oathompsonjones.ryso.RYSOItems;
 
 @Mixin(CactusBlock.class)
 public abstract class CactusBlockMixin extends Block {

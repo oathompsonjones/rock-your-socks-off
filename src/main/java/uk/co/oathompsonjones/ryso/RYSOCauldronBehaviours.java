@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones;
+package uk.co.oathompsonjones.ryso;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeveledCauldronBlock;

@@ -18,13 +18,13 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "uk.co.oathompsonjones.RYSODataGenerator"
+      "uk.co.oathompsonjones.ryso.RYSODataGenerator"
     ],
     "main": [
-      "uk.co.oathompsonjones.RYSO"
+      "uk.co.oathompsonjones.ryso.RYSO"
     ],
     "client": [
-      "uk.co.oathompsonjones.RYSOClient"
+      "uk.co.oathompsonjones.ryso.RYSOClient"
     ]
   },
   "mixins": [

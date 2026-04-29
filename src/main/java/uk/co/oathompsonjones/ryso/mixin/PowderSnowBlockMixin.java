@@ -1,4 +1,4 @@
-package uk.co.oathompsonjones.mixin;
+package uk.co.oathompsonjones.ryso.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.PowderSnowBlock;
@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uk.co.oathompsonjones.RYSOStatusEffects;
+import uk.co.oathompsonjones.ryso.RYSOStatusEffects;
 
 @Mixin(PowderSnowBlock.class)
 public abstract class PowderSnowBlockMixin extends Block {
@@ -20,7 +20,7 @@ public abstract class PowderSnowBlockMixin extends Block {
     @Inject(method="canWalkOnPowderSnow", at=@At("HEAD"), cancellable=true)
     private static void ryso$canWalkOnPowerSnow(Entity entity, CallbackInfoReturnable<Boolean> ci) {
         if (entity instanceof LivingEntity livingEntity
-            && livingEntity.hasStatusEffect(RYSOStatusEffects.JOLLY_SPIRIT)) {
+                && livingEntity.hasStatusEffect(RYSOStatusEffects.JOLLY_SPIRIT)) {
             ci.setReturnValue(true);
         }
     }
