@@ -1,7 +1,7 @@
 package uk.co.oathompsonjones.ryso;
 
 public class RYSOVillagers {
-    /* TODO (2.0): public static final RegistryKey<PointOfInterestType> SOCKS_POI_KEY = poiKey("socks_poi");
+    /* TODO (3.0): public static final RegistryKey<PointOfInterestType> SOCKS_POI_KEY = poiKey("socks_poi");
     public static final PointOfInterestType              SOCKS_POI     = registerPoi("socks_poi", Blocks.FURNACE);
 
     public static final VillagerProfession SOCKS_TRADER = registerProfession("socks_trader", SOCKS_POI_KEY);
@@ -125,7 +125,7 @@ public class RYSOVillagers {
         TradeOfferHelper.registerVillagerOffers(SOCKS_TRADER, 4, factories -> {
             factories.add((entity, random) -> new TradeOffer(new ItemStack(Items.EMERALD, 32),
                                                              new ItemStack(RYSOItems.SOCKS),
-                                                             // TODO (2.0): Change this to Grandma's Socks
+                                                             // TODO (3.0): Change this to Grandma's Socks
                                                              new ItemStack(RYSOItems.CHRISTMAS_SOCKS),
                                                              4,
                                                              12,

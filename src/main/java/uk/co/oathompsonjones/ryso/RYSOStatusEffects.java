@@ -12,6 +12,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class RYSOStatusEffects {
     public static final StatusEffect POISONOUS       = register("poisonous", new PoisonousStatusEffect());
     public static final StatusEffect STEEL_BODY      = register("steel_body", new SteelBodyStatusEffect());
@@ -31,6 +34,15 @@ public class RYSOStatusEffects {
     public static final StatusEffect ENDERMANS_FAVOR = register("endermans_favor", new EndermansFavorStatusEffect());
     public static final StatusEffect CUTESY          = register("cutesy", new CutesyStatusEffect());
     public static final StatusEffect JOLLY_SPIRIT    = register("jolly_spirit", new JollySpiritStatusEffect());
+
+    public static final List<StatusEffect> EFFECTS = Arrays.stream(RYSOStatusEffects.class.getDeclaredFields()).filter(
+            field -> field.getType() == StatusEffect.class).map(field -> {
+        try {
+            return (StatusEffect) field.get(null);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException("Failed to access item field: " + field.getName(), e);
+        }
+    }).toList();
 
     private static StatusEffect register(String id, StatusEffect entry) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(RYSO.MOD_ID + ":" + id), entry);

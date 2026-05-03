@@ -30,33 +30,45 @@ import java.util.List;
 import java.util.Objects;
 
 public class SocksItem extends ArmorItem {
-    private final String id;
-    private final Effect effect;
+    private final String    id;
+    private final Effect    effect;
+    private final String[]  tooltip;
+    private final SocksItem parent;
+    private       int       depth;
 
-    public SocksItem(String id) {
-        this(id, null, 0, new Item.Settings());
+    public SocksItem(String id, String tooltip0) {
+        this(id, tooltip0, "", null, null, 0, new Item.Settings());
     }
 
-    public SocksItem(String id, Item.Settings settings) {
-        this(id, null, 0, settings);
+    public SocksItem(String id, String tooltip0, String tooltip1, SocksItem parent, StatusEffect effect) {
+        this(id, tooltip0, tooltip1, parent, effect, 0, new Item.Settings());
     }
 
-    public SocksItem(String id, StatusEffect effect) {
-        this(id, effect, 0, new Item.Settings());
+    public SocksItem(
+            String id, String tooltip0, String tooltip1, SocksItem parent, StatusEffect effect, int amplifier
+    ) {
+        this(id, tooltip0, tooltip1, parent, effect, amplifier, new Item.Settings());
     }
 
-    public SocksItem(String id, StatusEffect effect, int amplifier) {
-        this(id, effect, amplifier, new Item.Settings());
-    }
-
-    public SocksItem(String id, StatusEffect effect, Item.Settings settings) {
-        this(id, effect, 0, settings);
-    }
-
-    public SocksItem(String id, StatusEffect effect, int amplifier, Item.Settings settings) {
+    public SocksItem(
+            String id,
+            String tooltip0,
+            String tooltip1,
+            SocksItem parent,
+            StatusEffect effect,
+            int amplifier,
+            Item.Settings settings
+    ) {
         super(new SocksArmourMaterial(id), Type.BOOTS, settings);
-        this.id     = id;
-        this.effect = effect == null ? null : new Effect(effect, amplifier);
+        this.id      = id;
+        this.effect  = effect == null ? null : new Effect(effect, amplifier);
+        this.tooltip = new String[] { tooltip0, tooltip1 };
+        this.parent  = parent;
+
+        while (parent != null) {
+            depth++;
+            parent = parent.parent;
+        }
 
         // Register the item with the trinkets integration if it is present
         if (RYSO.HAS_TRINKETS)
@@ -69,6 +81,14 @@ public class SocksItem extends ArmorItem {
 
     public Effect getEffect() {
         return effect;
+    }
+
+    public SocksItem getParent() {
+        return parent;
+    }
+
+    public int getDepth() {
+        return depth;
     }
 
     @Override
@@ -105,8 +125,8 @@ public class SocksItem extends ArmorItem {
             @Nullable
             World world, List<Text> tooltip, TooltipContext context
     ) {
-        tooltip.add(Text.translatable("tooltip.ryso." + id + ".0").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("tooltip.ryso." + id + ".1").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(this.tooltip[0]).formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable(this.tooltip[1]).formatted(Formatting.GRAY));
         if (!Objects.equals(id, "socks"))
             tooltip.add(Text.literal(""));
     }

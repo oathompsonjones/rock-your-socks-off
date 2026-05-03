@@ -56,7 +56,7 @@ public class RYSOBlocks {
             ItemGroupEvents.modifyEntriesEvent(RYSOItems.ITEM_GROUP).register((group) -> group.add(block.asItem()));
     }
 
-    private static class WardenAntennaBlock extends FacingBlock {
+    private static class WardenAntennaBlock extends HorizontalFacingBlock {
         public WardenAntennaBlock() {
             super(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SCULK_SENSOR).noCollision().nonOpaque());
         }
