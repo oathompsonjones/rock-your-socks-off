@@ -24,7 +24,7 @@ public class SocksTrinketRenderer<T extends LivingEntity, M extends EntityModel<
 
     public SocksTrinketRenderer(FeatureRendererContext<T, M> context, EntityModelLoader loader) {
         super(context);
-        model = new ArmorEntityModel<>(loader.getModelPart(EntityModelLayers.PLAYER_OUTER_ARMOR));
+        model = new ArmorEntityModel<>(loader.getModelPart(EntityModelLayers.PLAYER_INNER_ARMOR));
     }
 
     @Override
@@ -54,16 +54,15 @@ public class SocksTrinketRenderer<T extends LivingEntity, M extends EntityModel<
         // Render the socks.
         matrices.push();
         // Scale the socks to fit under the boots and over the leggings.
-        matrices.scale(0.9f, 0.99f, 0.9f);
+        matrices.scale(1.05f, 1.0f, 1.05f);
         // Copy pose/state flags (crouching, swimming, etc.) from the context model.
         getContextModel().copyStateTo(model);
         // Ensures animations aren't simply suppressed.
         model.animateModel(entity, limbAngle, limbDistance, tickDelta);
         // Apply the computed angles.
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
-        if (entity.isSneaking()) {
-            matrices.translate(0, 0, 0.28f);
-        }
+        if (entity.isInSneakingPose())
+            matrices.translate(0, 0, 0.24f);
         VertexConsumer vertex = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(identifier));
         model.render(matrices, vertex, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
         matrices.pop();
