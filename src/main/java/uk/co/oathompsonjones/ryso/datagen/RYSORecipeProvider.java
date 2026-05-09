@@ -19,13 +19,13 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         // base socks
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, RYSOItems.SOCKS).pattern("w w").pattern("w w").input(
-                'w',
-                Items.WHITE_WOOL
-        ).criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL)).offerTo(
-                exporter,
-                getRecipeName(RYSOItems.SOCKS)
-        );
+        ShapedRecipeJsonBuilder
+                .create(RecipeCategory.MISC, RYSOItems.SOCKS)
+                .pattern("w w")
+                .pattern("w w")
+                .input('w', Items.WHITE_WOOL)
+                .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
+                .offerTo(exporter, getRecipeName(RYSOItems.SOCKS));
 
         // light gray socks
         ShapedRecipeJsonBuilder
@@ -52,10 +52,7 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .input('b', RYSOItems.SOCKS)
                 .input('m', Items.MILK_BUCKET)
                 .input('i', Items.IRON_BLOCK)
-                .input(
-                        's',
-                        Items.BONE_BLOCK
-                )
+                .input('s', Items.BONE_BLOCK)
                 .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
                 .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                 .criterion(hasItem(Items.IRON_BLOCK), conditionsFromItem(Items.IRON_BLOCK))
@@ -103,15 +100,21 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .input('b', RYSOItems.SOCKS)
                 .input('g', Items.GHAST_TEAR)
                 .input('r', Items.REDSTONE)
-                .input('m', Items.GLISTERING_MELON_SLICE)
-                .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
-                .criterion(
-                        hasItem(Items.GHAST_TEAR),
-                        conditionsFromItem(Items.GHAST_TEAR)
+                .input(
+                        'm',
+                        Items.GLISTERING_MELON_SLICE
                 )
-                .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
+                .criterion(hasItem(Items.GHAST_TEAR), conditionsFromItem(Items.GHAST_TEAR))
+                .criterion(
+                        hasItem(Items.REDSTONE),
+                        conditionsFromItem(Items.REDSTONE)
+                )
                 .criterion(hasItem(Items.GLISTERING_MELON_SLICE), conditionsFromItem(Items.GLISTERING_MELON_SLICE))
-                .offerTo(exporter, getRecipeName(RYSOItems.RED_SOCKS));
+                .offerTo(
+                        exporter,
+                        getRecipeName(RYSOItems.RED_SOCKS)
+                );
 
         // orange socks
         ShapedRecipeJsonBuilder
@@ -154,9 +157,15 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .input('b', RYSOItems.SOCKS)
                 .input('m', Items.BONE_MEAL)
                 .input('c', Items.MOSS_CARPET)
-                .input('s', Items.WHEAT_SEEDS)
+                .input(
+                        's',
+                        Items.WHEAT_SEEDS
+                )
                 .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
-                .criterion(hasItem(Items.BONE_MEAL), conditionsFromItem(Items.BONE_MEAL))
+                .criterion(
+                        hasItem(Items.BONE_MEAL),
+                        conditionsFromItem(Items.BONE_MEAL)
+                )
                 .criterion(hasItem(Items.MOSS_CARPET), conditionsFromItem(Items.MOSS_CARPET))
                 .criterion(hasItem(Items.WHEAT_SEEDS), conditionsFromItem(Items.WHEAT_SEEDS))
                 .offerTo(exporter, getRecipeName(RYSOItems.LIME_SOCKS));
@@ -185,12 +194,12 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .pattern("pnp")
                 .input('b', RYSOItems.SOCKS)
                 .input('n', Items.NAUTILUS_SHELL)
-                .input(
-                        'p',
-                        Items.PRISMARINE_CRYSTALS
-                )
+                .input('p', Items.PRISMARINE_CRYSTALS)
                 .input('s', Items.SPONGE)
-                .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
+                .criterion(
+                        hasItem(Items.WHITE_WOOL),
+                        conditionsFromItem(Items.WHITE_WOOL)
+                )
                 .criterion(hasItem(Items.NAUTILUS_SHELL), conditionsFromItem(Items.NAUTILUS_SHELL))
                 .criterion(hasItem(Items.PRISMARINE_CRYSTALS), conditionsFromItem(Items.PRISMARINE_CRYSTALS))
                 .criterion(hasItem(Items.SPONGE), conditionsFromItem(Items.SPONGE))
@@ -269,15 +278,9 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .input('b', RYSOItems.SOCKS)
                 .input('w', Items.PINK_WOOL)
                 .input('p', Items.PINK_PETALS)
-                .input(
-                        'f',
-                        Items.FLOWERING_AZALEA
-                )
+                .input('f', Items.FLOWERING_AZALEA)
                 .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
-                .criterion(
-                        hasItem(Items.PINK_WOOL),
-                        conditionsFromItem(Items.PINK_WOOL)
-                )
+                .criterion(hasItem(Items.PINK_WOOL), conditionsFromItem(Items.PINK_WOOL))
                 .criterion(hasItem(Items.PINK_PETALS), conditionsFromItem(Items.PINK_PETALS))
                 .criterion(hasItem(Items.FLOWERING_AZALEA), conditionsFromItem(Items.FLOWERING_AZALEA))
                 .offerTo(exporter, getRecipeName(RYSOItems.PINK_SOCKS));
@@ -302,7 +305,7 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder
                 .create(RecipeCategory.MISC, RYSOItems.AMBER_SOCKS)
                 .pattern("dcd")
-                .pattern("bmb")
+                .pattern("mbm")
                 .pattern("dcd")
                 .input('b', RYSOItems.SOCKS)
                 .input('d', Items.DRIPSTONE_BLOCK)
@@ -317,9 +320,9 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
         // artichoke socks
         ShapedRecipeJsonBuilder
                 .create(RecipeCategory.MISC, RYSOItems.ARTICHOKE_SOCKS)
-                .pattern("bqb")
-                .pattern("xpx")
-                .pattern("bqb")
+                .pattern("pqp")
+                .pattern("xbx")
+                .pattern("pqp")
                 .input('b', RYSOItems.SOCKS)
                 .input('q', Items.QUARTZ)
                 .input('x', Items.EXPERIENCE_BOTTLE)
@@ -443,19 +446,23 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, getRecipeName(RYSOItems.MAUVE_SOCKS));
 
         // mint socks
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, RYSOItems.MINT_SOCKS).pattern("ipi").pattern("sbs").pattern(
-                "ipi").input('b', RYSOItems.SOCKS).input('i', Items.ICE).input('p', Items.PRISMARINE_SHARD).input('s',
-                Items.POWDER_SNOW_BUCKET
-        ).criterion(
-                hasItem(Items.WHITE_WOOL),
-                conditionsFromItem(Items.WHITE_WOOL)
-        ).criterion(hasItem(Items.ICE), conditionsFromItem(Items.ICE)).criterion(
-                hasItem(Items.PRISMARINE_SHARD),
-                conditionsFromItem(Items.PRISMARINE_SHARD)
-        ).criterion(hasItem(Items.POWDER_SNOW_BUCKET), conditionsFromItem(Items.POWDER_SNOW_BUCKET)).offerTo(
-                exporter,
-                getRecipeName(RYSOItems.MINT_SOCKS)
-        );
+        ShapedRecipeJsonBuilder
+                .create(RecipeCategory.MISC, RYSOItems.MINT_SOCKS)
+                .pattern("ipi")
+                .pattern("sbs")
+                .pattern("ipi")
+                .input('b', RYSOItems.SOCKS)
+                .input('i', Items.ICE)
+                .input('p', Items.PRISMARINE_SHARD)
+                .input('s', Items.POWDER_SNOW_BUCKET)
+                .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
+                .criterion(
+                        hasItem(Items.ICE),
+                        conditionsFromItem(Items.ICE)
+                )
+                .criterion(hasItem(Items.PRISMARINE_SHARD), conditionsFromItem(Items.PRISMARINE_SHARD))
+                .criterion(hasItem(Items.POWDER_SNOW_BUCKET), conditionsFromItem(Items.POWDER_SNOW_BUCKET))
+                .offerTo(exporter, getRecipeName(RYSOItems.MINT_SOCKS));
 
         // mold socks
         ShapedRecipeJsonBuilder
@@ -546,9 +553,15 @@ public class RYSORecipeProvider extends FabricRecipeProvider {
                 .input('b', RYSOItems.SOCKS)
                 .input('d', Items.DANDELION)
                 .input('h', Items.HONEY_BOTTLE)
-                .input('c', Items.CORNFLOWER)
+                .input(
+                        'c',
+                        Items.CORNFLOWER
+                )
                 .criterion(hasItem(Items.WHITE_WOOL), conditionsFromItem(Items.WHITE_WOOL))
-                .criterion(hasItem(Items.DANDELION), conditionsFromItem(Items.DANDELION))
+                .criterion(
+                        hasItem(Items.DANDELION),
+                        conditionsFromItem(Items.DANDELION)
+                )
                 .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
                 .criterion(hasItem(Items.CORNFLOWER), conditionsFromItem(Items.CORNFLOWER))
                 .offerTo(exporter, getRecipeName(RYSOItems.SAP_SOCKS));
